@@ -37,9 +37,7 @@ alias vim="/usr/local/bin/nvim"
 alias http="http -v"
 
 # hackbright
-alias fenv="source ~/fellowship/env/bin/activate"
-export COHORT_ID="ft27a"
-export PYGMENTS_NODE_COMMAND="node"
+alias fenv="source /Users/ashleytrinh/.local/share/virtualenvs/flask-env-sPrF8dR1/bin/activate"
 
 # # nvm
 # export NVM_DIR="$HOME/.nvm"
@@ -102,8 +100,10 @@ eval "$(fasd --init auto)"
 
 alias cat=bat
 alias diff=colordiff
-alias subl="/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
 alias present="kitty @ set-font-size 16"
+alias pv=pipenv
+alias pvr="pipenv run"
+alias la="ls -a"
 
 bindkey "^[[A" history-beginning-serach-up
 bindkey "^[[B" history-beginning-serach-down

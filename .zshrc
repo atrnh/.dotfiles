@@ -111,3 +111,5 @@ bindkey -M vicmd "k" history-beginning-serach-up
 bindkey -M vicmd "j" history-beginning-serach-down
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=default,fg=green,bold"
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=default,fg=red,bold"
+
+export BAT_THEME="GitHub"

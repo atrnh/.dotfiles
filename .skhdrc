@@ -1,20 +1,20 @@
-:: prefix @ : chunkc border::color 0xFFFAC863; sleep 5; skhd -k "escape"
-:: window @
-:: desktop @
+:: prefix @ : chunkc border::color 0xFFFAC863; sleep 3; skhd -k "fn - escape"
+:: window
+:: desktop
 
 default < lctrl - 0x29 ; prefix
 
-prefix < escape ; default
+prefix < fn - escape ; default
 window < escape ; default
 desktop < escape ; default
 
 prefix < s ; window
 prefix < d ; desktop
 
-prefix < h : yabai -m window --focus west; skhd -k "escape"
-prefix < j : yabai -m window --focus south; skhd -k "escape"
-prefix < k : yabai -m window --focus north; skhd -k "escape"
-prefix < l : yabai -m window --focus east; skhd -k "escape"
+prefix < h : yabai -m window --focus west; skhd -k "fn - escape"
+prefix < j : yabai -m window --focus south; skhd -k "fn - escape"
+prefix < k : yabai -m window --focus north; skhd -k "fn - escape"
+prefix < l : yabai -m window --focus east; skhd -k "fn - escape"
 default < lctrl + alt + shift + cmd - h : yabai -m window --focus west
 default < lctrl + alt + shift + cmd - j : yabai -m window --focus south
 default < lctrl + alt + shift + cmd - k : yabai -m window --focus north
@@ -22,10 +22,10 @@ default < lctrl + alt + shift + cmd - l : yabai -m window --focus east
 default < lctrl + alt + shift + cmd - s : window
 default < lctrl + alt + shift + cmd - d : desktop
 
-window < h : yabai -m window --swap west; skhd -k "escape"
-window < j : yabai -m window --swap south; skhd -k "escape"
-window < k : yabai -m window --swap north; skhd -k "escape"
-window < l : yabai -m window --swap east; skhd -k "escape"
+window < h : yabai -m window --swap west;
+window < j : yabai -m window --swap south;
+window < k : yabai -m window --swap north;
+window < l : yabai -m window --swap east;
 window < a : yabai -m window --resize left:-20:0
 window < s : yabai -m window --resize bottom:0:20
 window < w : yabai -m window --resize top:0:-20
@@ -36,12 +36,12 @@ window < shift - w : yabai -m window --resize top:0:20
 window < shift - d : yabai -m window --resize right:-20:0
 window < t : yabai -m window --toggle float;\
              yabai -m window --grid 10:10:1:1:8:8;\
-             skhd -k "escape"
+             skhd -k "fn - escape"
 
 desktop < r : yabai -m space --rotate 90
-desktop < b : yabai -m space --layout bsp; skhd -k "escape"
-desktop < f : yabai -m space --layout float; skhd -k "escape"
+desktop < b : yabai -m space --layout bsp; skhd -k "fn - escape"
+desktop < f : yabai -m space --layout float; skhd -k "fn - escape"
 
 default < lctrl + alt + shift + cmd - r : yabai -m space --rotate 90
-default < lctrl + alt + shift + cmd - b : yabai -m space --layout bsp; skhd -k "escape"
-default < lctrl + alt + shift + cmd - f : yabai -m space --layout float; skhd -k "escape"
+default < lctrl + alt + shift + cmd - b : yabai -m space --layout bsp; skhd -k "fn - escape"
+default < lctrl + alt + shift + cmd - f : yabai -m space --layout float; skhd -k "fn - escape"

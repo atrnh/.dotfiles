@@ -19,9 +19,9 @@ yabai -m config window_topmost               off
 yabai -m config window_opacity               off
 yabai -m config window_shadow                on
 yabai -m config window_border                on
-yabai -m config window_border_width          1
-yabai -m config active_window_border_color   0xff7daaff
-yabai -m config normal_window_border_color   0x00ffffff
+yabai -m config window_border_width          2
+yabai -m config active_window_border_color   0xffc8ffc3
+yabai -m config normal_window_border_color   0xff7daaff
 yabai -m config insert_window_border_color   0xffffffff
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.70
@@ -44,5 +44,7 @@ yabai -m rule --add app='App Store' manage=off grid=4:4:1:1:2:2
 yabai -m rule --add app='System Preferences' manage=off grid=4:4:1:1:2:2
 yabai -m rule --add app='Install.?' manage=off grid=4:4:1:1:2:2
 yabai -m rule --add app='Dashlane' manage=off grid=4:4:1:1:2:2
+yabai -m rule --add app='Snap Camera' manage=off grid=4:4:1:1:2:2
+yabai -m rule --add app='Zoom' manage=off grid=4:4:1:1:2:2
 
 echo "yabai configuration loaded.."

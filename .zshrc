@@ -33,6 +33,8 @@ fi
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # general
+alias v="/usr/local/bin/nvim"
+alias vi="/usr/local/bin/nvim"
 alias vim="/usr/local/bin/nvim"
 alias http="http -v"
 
@@ -68,8 +70,14 @@ function hbadvise {
   jrnl "@$1" -from today --export markdown | python3 -m markdown | pbcopy
 }
 
+function slackqa {
+  kitty @ new-window --title "presenter" --new-tab --tab-title "slackterm"
+  kitty @ detach-tab -m title:slackterm
+  kitty @ set-colors -m title:presenter ~/.dotfiles/lightkitty.conf
+  kitty @ set-background-opacity -m title:presenter 0.6
+}
+
 SPACESHIP_PROMPT_ORDER=(
-  vi_mode
   time
   user
   dir
@@ -77,23 +85,39 @@ SPACESHIP_PROMPT_ORDER=(
   git
   package
   venv
-  pyenv
   battery
   line_sep
-  char
+  vi_mode
 )
-SPACESHIP_CHAR_SYMBOL="♥ "
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_AMPM_SHOW=true
-SPACESHIP_TIME_PM="🌙 "
-SPACESHIP_TIME_AM="⛅ "
+SPACESHIP_TIME_PM=" "
+SPACESHIP_TIME_AM="  "
 SPACESHIP_TIME_PREFIX=" "
 SPACESHIP_TIME_12HR=true
-SPACESHIP_TIME_FORMAT="%D{%-I:%M}"
-SPACESHIP_VI_MODE_INSERT="►"
-SPACESHIP_VI_MODE_NORMAL="▲"
+SPACESHIP_TIME_FORMAT="%D{%-I:%M \033[34mon\033[0m %-m/%d }"
+SPACESHIP_DIR_PREFIX="\033[34min\033[0m "
+SPACESHIP_VI_MODE_INSERT="  "
+SPACESHIP_VI_MODE_NORMAL="  "
 SPACESHIP_VI_MODE_SUFFIX=""
-SPACESHIP_VI_MODE_COLOR="cyan"
+SPACESHIP_VI_MODE_COLOR="red"
+SPACESHIP_GIT_STATUS_PREFIX=" "
+SPACESHIP_GIT_STATUS_SUFFIX=" "
+SPACESHIP_GIT_STATUS_UNTRACKED=""
+SPACESHIP_GIT_STATUS_ADDED=" "
+SPACESHIP_GIT_STATUS_MODIFIED=""
+SPACESHIP_GIT_STATUS_RENAMED=" "
+SPACESHIP_GIT_STATUS_DELETED=""
+SPACESHIP_GIT_STATUS_STASHED=""
+SPACESHIP_GIT_STATUS_UNMERGED=""
+SPACESHIP_GIT_STATUS_AHEAD=""
+SPACESHIP_GIT_STATUS_BEHIND=""
+SPACESHIP_GIT_STATUS_DIVERGED=""
+SPACESHIP_NODE_SYMBOL="⬢ "
+SPACESHIP_RUBY_SYMBOL=" "
+SPACESHIP_VENV_SYMBOL=" "
+SPACESHIP_VENV_PREFIX=""
+SPACESHIP_VENV_COLOR="red"
 
 # fasd
 eval "$(fasd --init auto)"
@@ -111,5 +135,3 @@ bindkey -M vicmd "k" history-beginning-serach-up
 bindkey -M vicmd "j" history-beginning-serach-down
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=default,fg=green,bold"
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=default,fg=red,bold"
-
-export BAT_THEME="GitHub"

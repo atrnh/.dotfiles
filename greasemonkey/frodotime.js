@@ -1,15 +1,13 @@
 // ==UserScript==
 // @name Frodo time
-// @namespace frodo.hackbrightacademy.com
+// @namespace http://tampermonkey.net/
+// @version 0.1
+// @description Frodo
+// @author Ashley
+// @match https://fellowship.hackbrightacademy.com/admin/*/*/add/
+// @grant none
 // @run-at document-end
-// @include https://fellowship.hackbrightacademy.com/admin/*/*/change
-// @include http://prep.hackbrightacademy.com/admin/*/*/change
-// @include https://fellowship.hackbrightacademy.com/admin/*/add
-// @include http://prep.hackbrightacademy.com/admin/*/add
-// @include https://fellowship.hackbrightacademy.com/admin/*/*/add
-// @include http://prep.hackbrightacademy.com/admin/*/*/add
-// @include https://fellowship.hackbrightacademy.com/admin/*/*/*/change
-// @include http://prep.hackbrightacademy.com/admin/*/*/*/change
+// ==/UserScript==
 
 (() => {
   Array.from(

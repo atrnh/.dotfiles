@@ -1,0 +1,24 @@
+[user]
+	email = ashley@hackbrightacademy.com
+	name = Ashley Trinh
+[pull]
+	rebase = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[diff]
+	tool = kitty
+	guitool = kitty.gui
+[difftool]
+	prompt = false
+	trustExitCode = true
+[difftool "kitty"]
+	cmd = kitty +kitten diff $LOCAL $REMOTE
+[difftool "kitty.gui"]
+	cmd = kitty kitty +kitty diff $LOCAL $REMOTE
+[init]
+	defaultBranch = main
+[core]
+	editor = code --wait

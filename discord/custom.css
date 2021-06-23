@@ -1,0 +1,74 @@
+.theme-dark {
+  --interactive-active: #79ffa8;
+  --channels-default: #e4e4e4;
+}
+
+body {
+  font-family: 'IBM Plex Mono' !important;
+}
+
+div[class^="avatar"] {
+  margin-right: 0 !important;
+}
+
+div[class^="avatar"] div[role="img"] {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+div[class^="content"] div[class^="name"] {
+  font-family: 'IBM Plex Mono' !important;
+  font-size: 12px !important;
+  font-weight: normal !important;
+}
+
+div[class^="clickable"]:active, div[class^="highlighted"]:active {
+  color: #fff3d6 !important;
+}
+
+/* Sidebar */
+div[class^="base"] div[class^="content"] div[class^="sidebar"] {
+  width: 145px !important;
+}
+
+/* Sidebar entries */
+a[class^="channel"] div[class^="layout"], div[class^="sidebar"] div[role="listitem"] {
+  height: 24px !important;
+}
+
+section[aria-label="User area"] > div:nth-child(2) {
+  display: grid;
+  grid-template: "avatar name" "control control" auto / 20px auto;
+}
+
+section[aria-label="User area"] > div:nth-child(2) > div:last-child {
+  grid-area: control;
+  justify-content: space-evenly;
+}
+
+section[aria-label="User area"] div[class^="nameTag"] {
+  display: flex;
+}
+
+nav[aria-label="Servers sidebar"] {
+  width: 50px;
+}
+
+nav[aria-label="Servers sidebar"] div[class^="listItem"] {
+  /* width: 55px;*/
+  transform: scale(0.7);
+}
+
+nav[aria-label="Servers sidebar"] div[class^="listItem"] div[class^="listItemWrapper"] {
+  transform: scale(0.7);
+}
+
+div[class^="message"] {
+  padding-left: 4rem !important;
+  padding-right: 4px !important;
+}
+
+div[class^="messageContent"], div[class^="username"], time {
+  font-size: 0.8em !important;
+  line-height: 1.1rem !important;
+}

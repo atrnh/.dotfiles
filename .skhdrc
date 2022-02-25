@@ -1,10 +1,15 @@
-:: default : yabai -m config normal_window_border_color 0xff7daaff;\
-             yabai -m config active_window_border_color 0xffc8ffc3
-:: prefix : yabai -m config normal_window_border_color 0xffffffff;\
-            yabai -m config active_window_border_color 0xffffffff;\
-            sleep 0.7; skhd -k "0x9A"
-:: window
-:: desktop
+:: default : spacebar -m config background_color 0xff202020; \
+             spacebar -m config foreground_color 0xffffffff;
+
+:: prefix : spacebar -m config background_color 0xff8f2578; \
+            spacebar -m config foreground_color 0xffffffff; \
+            sleep 0.7; skhd -k "0x9A";
+
+:: desktop : spacebar -m config background_color 0xfff7e968; \
+            spacebar -m config foreground_color 0xff000000;
+
+:: window : spacebar -m config background_color 0x850b4499; \
+             spacebar -m config foreground_color 0xffffffff;
 
 default < lctrl - 0x29 ; prefix
 
@@ -12,7 +17,7 @@ prefix < 0x9A ; default
 window < escape ; default
 desktop < escape ; default
 
-prefix < s ; window
+prefix < w ; window
 prefix < d ; desktop
 prefix < h : yabai -m window --focus west; skhd -k "0x9A"
 prefix < j : yabai -m window --focus south; skhd -k "0x9A"

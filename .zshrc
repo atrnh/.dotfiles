@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:$HOME/.cargo/bin:/usr/local/opt/postgresql@10/bin:/usr/local/opt/openssl/bin:/opt/local/bin/:/opt/local/sbin:$HOME/bin:/usr/local/bin:$HOME/Library/Python/3.7/bin:/usr/local/texlive/2020basic/:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin:$HOME/Library/Python/3.8/bin:$PATH
+export PATH=/usr/local/bin:$HOME/.cargo/bin:/usr/local/opt/postgresql@10/bin:/usr/local/opt/openssl/bin:/opt/local/bin/:/opt/local/sbin:$HOME/bin:/usr/local/bin:/usr/local/texlive/2020basic/:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin:$PATH
 export MANPATH=/usr/local/man:/opt/local/share/man:$MANPATH
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -107,6 +107,7 @@ eval "$(fasd --init auto)"
 
 source $DOTFILES_REPO/zsh/functions.sh
 source $DOTFILES_REPO/zsh/aliases.sh
+source $DOTFILES_REPO/zsh/secrets.sh
 
 bindkey "^[[A" history-beginning-serach-up
 bindkey "^[[B" history-beginning-serach-down
@@ -115,7 +116,7 @@ bindkey -M vicmd "j" history-beginning-serach-down
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=default,fg=green,bold"
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=default,fg=red,bold"
 
-export BAT_THEME=ansi-dark
+# export BAT_THEME=ansi-dark
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -131,3 +132,7 @@ if [ "$(command -v exa)" ]; then
   alias l='exa -G--color auto --icons -a -s type'
   alias ll='exa -l --color always --icons -a -s type'
 fi
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
+alias ipython=./Library/Python/3.9/bin/ipython

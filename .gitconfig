@@ -2,23 +2,21 @@
 	email = ashley@hackbrightacademy.com
 	name = Ashley Trinh
 [pull]
-	rebase = true
+	rebase = false
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [diff]
-	tool = kitty
-	guitool = kitty.gui
-[difftool]
-	prompt = false
-	trustExitCode = true
-[difftool "kitty"]
-	cmd = kitty +kitten diff $LOCAL $REMOTE
-[difftool "kitty.gui"]
-	cmd = kitty kitty +kitty diff $LOCAL $REMOTE
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 [init]
 	defaultBranch = main
 [core]
 	editor = code --wait
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager-core
+[credential "https://dev.azure.com"]
+	useHttpPath = true

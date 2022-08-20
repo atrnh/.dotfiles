@@ -1,4 +1,3 @@
-alias cat=bat
 alias diff=colordiff
 alias present="kitty @ set-font-size 16"
 alias pv=pipenv
@@ -14,3 +13,5 @@ alias tomorrow='gcalcli --config-folder=~/.config/gcalcli --default-calendar="As
 alias today='gcalcli --config-folder=~/.config/gcalcli --default-calendar="Ashley Trinh" agenda --details=location --nostarted today "today 20:00"'
 alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 alias codei=code-insiders
+
+alias s="kitty +kitten ssh"

@@ -36,5 +36,25 @@ function gh-search {
 }
 
 function cohort {
-	export INVOKE_COHORT=$1
+  export INVOKE_COHORT=$1
+}
+
+function connect_to_free_db {
+  psql --host=frodo-db-free.crkrlclc8wsy.us-west-1.rds.amazonaws.com
+}
+
+cat () {
+  if [[ $1 =~ .*\.(gif|jpeg|jpg|png) ]]
+  then
+    kitty +kitten icat $1
+  else
+    bat $1
+  fi
+}
+
+multised () {
+	cat $2 |
+		tr '\n' '\r' |
+		sed -e $1  |
+		tr '\r' '\n'
 }

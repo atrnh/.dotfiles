@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:$HOME/.cargo/bin:/usr/local/opt/postgresql@10/bin:/usr/local/opt/openssl/bin:/opt/local/bin/:/opt/local/sbin:$HOME/bin:/usr/local/bin:/usr/local/texlive/2020basic/:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin:$PATH
+export PATH=$HOME/Library/Python/3.9/bin:/usr/local/bin:$HOME/.cargo/bin:/usr/local/opt/postgresql@10/bin:/usr/local/opt/openssl/bin:/opt/local/bin/:/opt/local/sbin:$HOME/bin:/usr/local/bin:/usr/local/texlive/2020basic/:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin:$PATH
 export MANPATH=/usr/local/man:/opt/local/share/man:$MANPATH
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -135,4 +135,7 @@ fi
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
-alias ipython=./Library/Python/3.9/bin/ipython
+alias ipython=$HOME/Library/Python/3.9/bin/ipython
+
+# Mint
+export PATH=$HOME/.mint/bin:$PATH

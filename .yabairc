@@ -41,12 +41,10 @@ yabai -m config right_padding                10
 yabai -m config window_gap                   10
 
 yabai -m rule --add app='App Store' manage=off grid=4:4:1:1:2:2
-yabai -m rule --add app='Dash' manage=off grid=4:4:1:1:6:4
 yabai -m rule --add app='System Preferences' manage=off grid=4:4:1:1:2:2
 yabai -m rule --add app='Install.?' manage=off grid=4:4:1:1:2:2
 yabai -m rule --add app='Dashlane' manage=off grid=4:4:1:1:2:2
 yabai -m rule --add app='Snap Camera' manage=off grid=4:4:1:1:2:2
 yabai -m rule --add app='Zoom' manage=off grid=4:4:1:1:2:2
-yabai -m rule --add app='NotePlan 3' title='Command Bar' manage=off
 
 echo "yabai configuration loaded.."

@@ -1,17 +1,43 @@
-alias diff=colordiff
-alias present="kitty @ set-font-size 16"
-alias pv=pipenv
-alias pvr="pipenv run"
-alias la="ls -a"
+if [ "$(command -v nvim)" ]; then
+  alias v='/usr/local/bin/nvim'
+  alias vi='/usr/local/bin/nvim'
+  alias vim='/usr/local/bin/nvim'
+fi
+
+if [ "$(command -v http)" ]; then
+  alias http='http -v'
+fi
+
+if [ "$(command -v colordiff)" ]; then
+  alias diff='colordiff'
+fi
+
+if [ "$(command -v kitty)" ]; then
+  alias present="kitty @ set-font-size 16"
+  alias s="kitty +kitten ssh"
+fi
+
+if [ "$(command -v pipenv)" ]; then
+  alias pv='pipenv'
+  alias pvr='pipenv run'
+fi
 
 alias gdiff="git difftool --no-symlinks --dir-diff"
 
-alias cal=gcalcli
-# Calendar
-alias gcal='gcalcli --config-folder=~/.config/gcalcli --default-calendar="Ashley Trinh"'
-alias tomorrow='gcalcli --config-folder=~/.config/gcalcli --default-calendar="Ashley Trinh" agenda --details=location --nostarted tomorrow "tomorrow 20:00"'
-alias today='gcalcli --config-folder=~/.config/gcalcli --default-calendar="Ashley Trinh" agenda --details=location --nostarted today "today 20:00"'
-alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
-alias codei=code-insiders
+if [ "$(command -v code-insiders)" ]; then
+  alias ci='code-insiders'
+fi
 
-alias s="kitty +kitten ssh"
+
+if [ "$(command -v exa)" ]; then
+  unalias -m 'll'
+  unalias -m 'l'
+  unalias -m 'la'
+  unalias -m 'ls'
+  alias ls='exa -G --color auto --icons -a -s type'
+  alias la='exa -G --color auto --icons -a -s type'
+  alias l='exa -G--color auto --icons -a -s type'
+  alias ll='exa -l --color always --icons -a -s type'
+fi
+
+alias colors="kitty +kitten themes"

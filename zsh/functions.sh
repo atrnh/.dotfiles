@@ -48,7 +48,7 @@ cat () {
   then
     kitty +kitten icat $1
   else
-    bat $1
+    bat --theme='Sublime Snazzy' $1
   fi
 }
 

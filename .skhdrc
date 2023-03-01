@@ -31,12 +31,10 @@ default < lctrl + alt + shift + cmd - l : yabai -m window --focus east
 default < lctrl + alt + shift + cmd - f : yabai -m window --toggle float;\
                                           yabai -m window --grid 10:10:1:1:8:8
 default < lctrl + alt + shift + cmd - r : yabai -m space --rotate 90
-default < lctrl + alt + shift + cmd - w : yabai -m window --swap north;
-default < lctrl + alt + shift + cmd - a : yabai -m window --swap west;
-default < lctrl + alt + shift + cmd - s : yabai -m window --swap south;
-default < lctrl + alt + shift + cmd - d : yabai -m window --swap east;
-default < lctrl + alt + shift + cmd - c : osascript -e 'tell application "KeyCast"' -e 'set enabled to true' -e 'end tell'
-default < lctrl + alt + shift + cmd - v : osascript -e 'tell application "KeyCast"' -e 'set enabled to false' -e 'end tell'
+default < lctrl + alt + shift + cmd - up : yabai -m window --swap north;
+default < lctrl + alt + shift + cmd - left : yabai -m window --swap west;
+default < lctrl + alt + shift + cmd - down : yabai -m window --swap south;
+default < lctrl + alt + shift + cmd - right : yabai -m window --swap east;
 
 window < j : yabai -m window --swap south;
 window < k : yabai -m window --swap north;
@@ -62,3 +60,12 @@ desktop < f : yabai -m space --layout float; skhd -k "fn - escape"
 default < lctrl + alt + shift + cmd - r : yabai -m space --rotate 90
 default < lctrl + alt + shift + cmd - b : yabai -m space --layout bsp; skhd -k "0x9A"
 default < lctrl + alt + shift + cmd - f : yabai -m space --layout float; skhd -k "0x9A"
+default < lctrl + alt + shift + cmd - 5 : skhd -k "shift + cmd - 5"
+default < lctrl + alt + shift + cmd - 2 : skhd -k "shift + cmd - 2"
+default < lctrl + alt + shift + cmd - a : skhd -k "cmd - a"
+default < lctrl + alt + shift + cmd - c : skhd -k "cmd - c"
+default < lctrl + alt + shift + cmd - v : skhd -k "cmd - v"
+default < lctrl + alt + shift + cmd - return : skhd -k "shift - return"
+default < lctrl + alt + shift + cmd - delete : skhd -k "alt - delete"
+default < lctrl + alt + shift + cmd - q : skhd -k "lctrl + alt + shift - q"
+

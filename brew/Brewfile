@@ -24,6 +24,13 @@ brew 'yabai'
 brew 'yt-dlp'
 brew 'zoxide'
 
+# Fonts
+tap 'homebrew/cask-fonts'
+brew 'font-firacode-nerd-font'
+brew 'font-ibm-plex-sans'
+brew 'font-public-sans'
+brew 'font-sf-pro'
+
 # Cask Apps
 cask 'racket'
 cask 'iina'

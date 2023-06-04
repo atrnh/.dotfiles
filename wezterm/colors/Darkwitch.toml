@@ -1,0 +1,34 @@
+[colors]
+foreground = '#e6f3ff'
+background = '#332f36'
+cursor_fg = '#ffffff'
+cursor_bg = '#8063da'
+cursor_border = '#bbbbbb'
+selection_fg = '#000000'
+selection_bg = '#fffacd'
+ansi = [
+  '#000000',
+  '#f2cce3',
+  '#c8ffc3',
+  '#f3f6c4',
+  '#abe0ff',
+  '#bbb8ff',
+  '#b4ecde',
+  '#9aa2a4',
+]
+brights = [
+  '#6494ff',
+  '#f27cc5',
+  '#aaeed3',
+  '#cfd08c',
+  '#8bccd0',
+  '#8e84ff',
+  '#409192',
+  '#daffff',
+]
+
+[colors.indexed]
+
+[metadata]
+name = 'Darkwitch'
+origin_url = 'https://github.com/atrnh'

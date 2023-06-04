@@ -23,3 +23,10 @@ disabled = true
 
 [aws]
 disabled = true
+
+[java]
+symbol = '☕ '
+
+[perl]
+symbol = '💠 '
+detect_extensions = ['pl', 'pod']

@@ -36,6 +36,9 @@ antigen bundle "$LOCAL_BUNDLES/fzf"
 antigen bundle "$LOCAL_BUNDLES/yarn"
 antigen bundle "$LOCAL_BUNDLES/starship"
 antigen bundle "$LOCAL_BUNDLES/zoxide"
+antigen bundle "$LOCAL_BUNDLES/poetry"
+antigen bundle "$LOCAL_BUNDLES/ripgrep"
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
@@ -57,3 +60,5 @@ bindkey -M vicmd "k" history-beginning-search-up
 bindkey -M vicmd "j" history-beginning-search-down
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=default,fg=green,bold"
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=default,fg=red,bold"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

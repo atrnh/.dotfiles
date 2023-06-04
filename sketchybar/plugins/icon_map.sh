@@ -41,7 +41,7 @@ case $@ in
 "Thunderbird")
   icon_result=":thunderbird:"
   ;;
-"Notes")
+"Notes" | "NotePlan")
   icon_result=":notes:"
   ;;
 "Caprine")
@@ -65,7 +65,7 @@ case $@ in
 "App Store")
   icon_result=":app_store:"
   ;;
-"Chromium" | "Google Chrome" | "Google Chrome Canary")
+"Chromium" | "Google Chrome" | "Google Chrome Canary" | "Google Chrome Beta")
   icon_result=":google_chrome:"
   ;;
 "zoom.us")
@@ -170,7 +170,7 @@ case $@ in
 "Evernote Legacy")
   icon_result=":evernote_legacy:"
   ;;
-"Calendar" | "Fantastical")
+"Calendar" | "Fantastical" | "Cron")
   icon_result=":calendar:"
   ;;
 "Android Studio")

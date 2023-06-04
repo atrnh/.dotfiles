@@ -1,1 +1,1 @@
-BAT_THEME="ansi"
+export BAT_THEME="Catppuccin-mocha"

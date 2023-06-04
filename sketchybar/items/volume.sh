@@ -5,7 +5,7 @@ volume_slider=(
   updates=on
   label.drawing=off
   icon.drawing=off
-  slider.highlight_color=$BLUE
+  slider.highlight_color=$MAGENTA
   slider.background.height=5
   slider.background.corner_radius=3
   slider.background.color=$BACKGROUND_2
@@ -20,11 +20,12 @@ volume_icon=(
   icon=$VOLUME_100
   icon.width=0
   icon.align=left
-  icon.color=$GREY
-  icon.font="$FONT:Regular:14.0"
-  label.width=25
+  icon.color=$RED
+  icon.font="$FONT:Regular:12.0"
+  label.width=24
   label.align=left
-  label.font="$FONT:Regular:14.0"
+  label.font="$FONT:Regular:12.0"
+  label.color=$RED
 )
 
 status_bracket=(

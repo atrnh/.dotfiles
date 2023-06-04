@@ -1,4 +1,4 @@
-tap 'caskroom/cask'
+# tap 'homebrew/cask'
 
 # Core Homebrew
 brew 'antigen'
@@ -12,7 +12,10 @@ brew 'neovim'
 brew 'node'
 brew 'peco'
 brew 'ripgrep'
+
+tap 'FelixKratz/formulae'
 brew 'sketchybar'
+
 brew 'skhd'
 brew 'snappy'
 brew 'starship'
@@ -20,25 +23,15 @@ brew 'wget'
 brew 'yabai'
 brew 'yt-dlp'
 brew 'zoxide'
-brew 'altair-graphql-client'
-brew 'discord'
-brew 'font-fantasque-sans-mono'
-brew 'font-fantasquesansmono-nerd-font'
-brew 'font-fira-code'
-brew 'font-firacode-nerd-font'
-brew 'font-hack-nerd-font'
-brew 'font-ibm-plex-sans'
-brew 'font-public-sans'
-brew 'font-sf-pro'
-brew 'font-source-code-pro'
-brew 'iina'
-brew 'keepingyouawake'
-brew 'racket'
-brew 'sf-symbols'
-brew 'wezterm'
 
 # Cask Apps
+cask 'racket'
+cask 'iina'
+cask 'keepingyouawake'
+cask 'sf-symbols'
+cask 'wezterm'
 
+# VS Code
 vscode "adpyke.codesnap"
 vscode "astro-build.astro-vscode"
 vscode "asvetliakov.vscode-neovim"
@@ -76,7 +69,6 @@ vscode "joaompinto.vscode-graphviz"
 vscode "kamikillerto.vscode-colorize"
 vscode "leonzalion.vscode-ejs"
 vscode "lextudio.restructuredtext"
-vscode "lextudio.restructuredtext-pack"
 vscode "mariomatheu.syntax-project-pbxproj"
 vscode "matt-meyers.vscode-dbml"
 vscode "mechatroner.rainbow-csv"

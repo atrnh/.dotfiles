@@ -40,7 +40,7 @@ _fzf_comprun() {
   shift
 
   case "$command" in
-    cd) fzf --height=60% --preview 'tree -C -L 3 {} | head -100' --preview-window up:10 "$@" ;;
+    cd) fzf --height=60% --preview 'tree -C -L 3 {} | head -100' "$@";;
     # export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
     # ssh)          fzf --preview 'dig {}'                   "$@" ;;
     *) fzf --preview 'bat -n --color=always {}' "$@" ;;

@@ -28,7 +28,6 @@ antigen bundle git
 antigen bundle vi-mode
 antigen bundle history-substring-search
 antigen bundle "$LOCAL_BUNDLES/general"
-antigen bundle "$LOCAL_BUNDLES/asdf"
 antigen bundle "$LOCAL_BUNDLES/bat"
 antigen bundle "$LOCAL_BUNDLES/brew"
 antigen bundle "$LOCAL_BUNDLES/bun"
@@ -38,6 +37,7 @@ antigen bundle "$LOCAL_BUNDLES/starship"
 antigen bundle "$LOCAL_BUNDLES/zoxide"
 antigen bundle "$LOCAL_BUNDLES/poetry"
 antigen bundle "$LOCAL_BUNDLES/ripgrep"
+antigen bundle "$LOCAL_BUNDLES/rtx"
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply

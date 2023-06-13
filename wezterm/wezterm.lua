@@ -4,6 +4,8 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+config.default_cursor_style = "SteadyBar"
+
 config.color_scheme = "Catppuccin Mocha"
 
 config.font = wezterm.font({

@@ -12,6 +12,8 @@ brew 'neovim'
 brew 'node'
 brew 'peco'
 brew 'ripgrep'
+brew 'fd'
+brew 'fzf'
 
 tap 'FelixKratz/formulae'
 brew 'sketchybar'
@@ -25,11 +27,11 @@ brew 'yt-dlp'
 brew 'zoxide'
 
 # Fonts
-tap 'homebrew/cask-fonts'
-brew 'font-firacode-nerd-font'
-brew 'font-ibm-plex-sans'
-brew 'font-public-sans'
-brew 'font-sf-pro'
+brew 'homebrew/cask-fonts/font-firacode-nerd-font'
+# brew 'font-firacode-nerd-font'
+# brew 'font-ibm-plex-sans'
+# brew 'font-public-sans'
+# brew 'font-sf-pro'
 
 # Cask Apps
 cask 'racket'

@@ -9,7 +9,7 @@ compinit -C
 eval "$(starship init zsh)"
 
 # Antigen
-source $HOMEBREW_PREFIX/share/antigen/antigen.zsh
+source "$(brew --prefix)/share/antigen/antigen.zsh"
 
 antigen use oh-my-zsh
 antigen bundle git
@@ -19,7 +19,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 for bun in $LOCAL_BUNDLES/*
 do
-  antigen bundle $bun 
+  antigen bundle $bun
 done
 antigen apply
 

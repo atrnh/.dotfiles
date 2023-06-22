@@ -3,8 +3,6 @@ export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES_REPO="$HOME/.dotfiles"
 export LOCAL_BUNDLES="$DOTFILES_REPO/zsh/plugins"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 export MANPATH=/usr/local/man:/opt/local/share/man:$MANPATH
 
 export SSH_KEY_PATH="~/.ssh/rsa_id"

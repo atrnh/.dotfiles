@@ -14,8 +14,9 @@ source "$(brew --prefix)/share/antigen/antigen.zsh"
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle vi-mode
-antigen bundle history-substring-search
+antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle jeffreytse/zsh-vi-mode
 
 for bun in $LOCAL_BUNDLES/*
 do
@@ -30,9 +31,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 unsetopt correct_all
 setopt correct
 
-bindkey "^[[A" history-beginning-search-up
-bindkey "^[[B" history-beginning-search-down
-bindkey -M vicmd "k" history-beginning-search-up
-bindkey -M vicmd "j" history-beginning-search-down
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+bindkey -M vicmd "k" history-substring-search-up
+bindkey -M vicmd "j" history-substring-search-down
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=default,fg=green,bold"
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=default,fg=red,bold"

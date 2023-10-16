@@ -22,7 +22,23 @@ if [ "$(command -v fzf)" ]; then
     }
 
     _fzf_compgen_dir() {
-      fd --type d --hidden --follow --exclude ".git" . "$1"
+      fd --type d \
+        --hidden \
+        --follow \
+        --exclude ".git" \
+        --search-path="$1" \
+        "."
+    }
+  fi
+
+  if [ "$(command -v rg)" ]; then
+    fzrg() {
+      local rg_prefix='rg --column --line-number --no-heading --color=always --smart-case'
+      fzf --bind "start:reload:$rg_prefix \"\"" \
+        --bind "change:reload:$rg_prefix {q} || true" \
+        --bind "enter:become(cat {1})" \
+        --ansi --disabled \
+        --height=50% --layout=reverse
     }
   fi
 

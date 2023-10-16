@@ -20,9 +20,9 @@ do
     padding_left=2
     padding_right=2
     label.padding_right=20
-    icon.highlight_color=$RED
+    icon.highlight_color=$MOCHA_maroon
     label.font="sketchybar-app-font:Regular:13.0"
-    label.color=$MAGENTA
+    label.color=$MOCHA_rosewater
     label.background.height=24
     label.background.drawing=on
     label.background.color=$BACKGROUND_1

@@ -1,3 +1,3 @@
 if [ "$(command -v code-insiders)" ]; then
-	alias ci="code-insiders"
+	alias code="code-insiders"
 fi

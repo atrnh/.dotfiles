@@ -1,3 +1,5 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Config vars
 export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES_REPO="$HOME/.dotfiles"

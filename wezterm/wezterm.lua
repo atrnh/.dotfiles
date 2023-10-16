@@ -13,7 +13,7 @@ config.font = wezterm.font({
 	weight = "Regular",
 	harfbuzz_features = { "cv11", "ss03", "cv29", "cv31" },
 })
-config.font_size = 11.8
+config.font_size = 12
 config.line_height = 1.1
 
 config.window_decorations = "RESIZE"

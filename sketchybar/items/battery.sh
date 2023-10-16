@@ -2,12 +2,13 @@
 
 battery=(
   script="$PLUGIN_DIR/battery.sh"
-  icon.font="$FONT:Regular:14.0"
+  icon.font="SF Pro:Regular:14.0"
   padding_right=0
   padding_left=0
-  label.drawing=off
+  icon.drawing=on
   update_freq=120
   updates=on
+  label.color=$WHITE
 )
 
 sketchybar --add item battery right      \

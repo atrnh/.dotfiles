@@ -1,0 +1,14 @@
+{
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "python.venvPath": "/Users/ashley/.local/share/virtualenvs",
+    "python.defaultInterpreterPath": "/Users/ashley/.asdf/installs/python/3.11.1/bin/python",
+    "apple-swift-format.path": "/Users/ashley/.mint/bin/swift-format",
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "editor.fontFamily": "'FiraCode Nerd Font Mono', Menlo, Monaco, 'Courier New', monospace",
+    "workbench.activityBar.location": "hidden"
+}

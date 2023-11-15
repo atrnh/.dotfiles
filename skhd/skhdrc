@@ -1,13 +1,13 @@
 :: default : spacebar -m config background_color 0xff202020; \
-             spacebar -m config foreground_color 0xffffffff;
+             spacebar -m config foreground_color 0xffffffff
 
-:: prefix : sleep 0.7; skhd -k "0x9A";
+:: prefix : sleep 0.7; skhd -k "0x9A"
 
 :: desktop : spacebar -m config background_color 0xfff7e968; \
-            spacebar -m config foreground_color 0xff000000;
+             spacebar -m config foreground_color 0xff000000
 
 :: window : spacebar -m config background_color 0x850b4499; \
-             spacebar -m config foreground_color 0xffffffff;
+             spacebar -m config foreground_color 0xffffffff
 
 default < lctrl - 0x29 ; prefix
 
@@ -50,7 +50,7 @@ window < shift - w : yabai -m window --resize top:0:20
 window < shift - d : yabai -m window --resize right:-20:0
 window < f : yabai -m window --toggle float;\
              yabai -m window --grid 10:10:1:1:8:8;\
-	     yabai -m window --layer below;\
+	           yabai -m window --layer normal;\
              skhd -k "escape"
 window < shift - f: yabai -m window --toggle sticky; skhd -k "escape"
 

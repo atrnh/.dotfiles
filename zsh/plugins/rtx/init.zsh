@@ -1,1 +1,1 @@
-eval "$(/usr/local/bin/rtx activate zsh)"
+eval "$($HOMEBREW_PREFIX/bin/rtx activate zsh)"

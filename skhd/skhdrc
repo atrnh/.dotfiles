@@ -50,6 +50,7 @@ window < shift - w : yabai -m window --resize top:0:20
 window < shift - d : yabai -m window --resize right:-20:0
 window < f : yabai -m window --toggle float;\
              yabai -m window --grid 10:10:1:1:8:8;\
+	     yabai -m window --layer below;\
              skhd -k "escape"
 window < shift - f: yabai -m window --toggle sticky; skhd -k "escape"
 

@@ -13,12 +13,12 @@ yabai -m config window_topmost off
 
 yabai -m config window_shadow on
 
-yabai -m config window_opacity off
+yabai -m config window_opacity on
 yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity .95
+yabai -m config normal_window_opacity 0.9
 
-yabai -m config window_border on
-yabai -m config window_border_width 4
+yabai -m config window_border off
+yabai -m config window_border_width 10
 yabai -m config active_window_border_color 0xffc8ffc3
 yabai -m config normal_window_border_color 0xffbbb8ff
 yabai -m config insert_window_border_color 0xffffffff
@@ -37,7 +37,7 @@ yabai -m config top_padding 10
 yabai -m config bottom_padding 10
 yabai -m config left_padding 8
 yabai -m config right_padding 8
-yabai -m config window_gap 4
+yabai -m config window_gap 8
 
 yabai -m rule --add app="^App Store" manage=off grid=4:4:1:1:2:2
 yabai -m rule --add app="^System Settings$" manage=off grid=4:4:1:1:2:2

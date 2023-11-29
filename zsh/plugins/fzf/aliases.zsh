@@ -11,6 +11,6 @@ if [ "$(command -v fzf)" ]; then
 
   # Search for branch and checkout
   igco() {
-    git checkout $(git branch | fzf --reverse --prompt='git checkout  ' --header='Search for a branch')
+    git checkout $(git branch --all | fzf --reverse --prompt='git checkout  ' --header='Search for a branch')
   }
 fi

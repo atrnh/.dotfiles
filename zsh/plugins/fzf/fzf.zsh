@@ -1,4 +1,4 @@
-fzf_init() {
+if [ "$(command -v fzf)" ]; then
   local brew_prefix=$(brew --prefix)
   # Setup fzf
   if [[ ! "$PATH" == *$brew_prefix/opt/fzf/bin* ]]; then
@@ -9,12 +9,42 @@ fzf_init() {
   # Key bindings
   source "$brew_prefix/opt/fzf/shell/key-bindings.zsh"
 
-  source $LOCAL_BUNDLES/fzf/aliases.zsh
-  source $LOCAL_BUNDLES/fzf/opts.zsh
-}
+  export FZF_DEFAULT_OPTS=" \
+    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+    --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#c0e7b6,hl+:#f38ba8 \
+    --header 'CTRL-/ to toggle preview.' \
+    --pointer='' \
+    --marker='' \
+    --prompt='  ' \
+    --bind 'ctrl-/:toggle-preview'"
 
-if [ "$(command -v fzf)" ]; then
-  fzf_init
+  export FZF_CTRL_T_OPTS="
+    --preview 'bat --style=plain --tabs=2 --color=always --theme=Catppuccin-mocha {}' \
+    --height=100% \
+    --prompt=' '"
+
+  export FZF_CTRL_R_OPTS="
+    --preview 'echo {}' \
+    --preview-window hidden \
+    --height=60% \
+    --reverse \
+    --prompt=' '"
+
+  # Interactively search for errant process with peco and kill it
+  ikill() {
+    local line=$(lsof -i -n -P | fzf --reverse --pointer='' --prompt='Kill a process  ' --header='' --header-lines=1 | tr -s ' ')
+    local pid=$(echo $line | cut -d ' ' -f 2)
+    local cmd=$(echo $line | cut -d ' ' -f 1)
+    local name=$(echo $line | cut -d ' ' -f 9)
+
+    kill -9 $pid && echo "Killed $cmd at $name"
+  }
+
+  # Search for branch and checkout
+  igco() {
+    git checkout $(git branch --all | fzf --reverse --prompt='git checkout  ' --header='Search for a branch')
+  }
 
   if [ "$(command -v fd)" ]; then
     _fzf_compgen_path() {

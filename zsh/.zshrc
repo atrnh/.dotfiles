@@ -18,10 +18,11 @@ antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle jeffreytse/zsh-vi-mode
 
-for bun in $LOCAL_BUNDLES/*
-do
-  antigen bundle $bun
+# Local bundles
+for bundle in $LOCAL_BUNDLES/plugins/*; do
+  antigen bundle $bundle --no-local-clone
 done
+
 antigen apply
 
 ENABLE_CORRECTION="true"

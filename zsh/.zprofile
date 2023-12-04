@@ -3,7 +3,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Config vars
 export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES_REPO="$HOME/.dotfiles"
-export LOCAL_BUNDLES="$DOTFILES_REPO/zsh/plugins"
+export LOCAL_BUNDLES="$DOTFILES_REPO/zsh"
 
 export MANPATH=/usr/local/man:/opt/local/share/man:$MANPATH
 

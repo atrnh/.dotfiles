@@ -6,9 +6,9 @@ add_newline = true
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character] # The name of the module we are configuring is "character"
-success_symbol = "[](fg:bright-purple)"
-error_symbol = "[󰋔](fg:bright-red)"
-vimcmd_symbol = "[](fg:bright-purple)"
+success_symbol = "[](fg:bright-purple) "
+error_symbol = "[󰋔](fg:bright-red) "
+vimcmd_symbol = "[](fg:bright-purple) "
 
 [username]
 show_always = true

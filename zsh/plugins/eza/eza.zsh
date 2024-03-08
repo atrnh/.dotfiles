@@ -15,7 +15,7 @@ fi
 
 # git status
 gs() {
-  if [ "$(command -v eza)" ]; then eza --long --git --icons --color auto $@
+  if [ "$(command -v eza)" ]; then eza --git --long --no-permissions --no-filesize --no-time --no-user --icons --color always
   else git status $@
   fi
 }

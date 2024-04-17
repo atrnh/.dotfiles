@@ -1,8 +1,0 @@
-{
-  "Prompt": " ",
-  "Style": {
-    "SavedSelection": ["yellow", "on_black"],
-    "Selected": ["black", "on_red"],
-    "Matched": ["bold", "green"]
-  }
-}

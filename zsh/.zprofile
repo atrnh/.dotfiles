@@ -17,3 +17,12 @@ fi
 export LANG=en_US.UTF-8
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+
+##
+# Your previous /Users/ashley/.zprofile file was backed up as /Users/ashley/.zprofile.macports-saved_2024-03-26_at_17:10:29
+##
+
+# MacPorts Installer addition on 2024-03-26_at_17:10:29: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

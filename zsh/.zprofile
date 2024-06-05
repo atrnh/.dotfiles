@@ -18,6 +18,8 @@ export LANG=en_US.UTF-8
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
+export BAT_THEME="Catppuccin-mocha"
+
 ##
 # Your previous /Users/ashley/.zprofile file was backed up as /Users/ashley/.zprofile.macports-saved_2024-03-26_at_17:10:29
 ##

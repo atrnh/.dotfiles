@@ -1,0 +1,206 @@
+{
+  "name": "Catpuccin Frappe",
+  "style": "Dark",
+  "author": {
+    "name": "Ashley Trinh",
+    "email": "itsashley@hey.com"
+  },
+  "editor": {
+    "backgroundColor": "#242633",
+    "altBackgroundColor": "#313445",
+    "tintColor": "#91ACEE",
+    "tintColor2": "#E3A37D",
+    "textColor": "#EDD6D0",
+    "toolbarBackgroundColor": "#424557",
+    "toolbarIconColor": "#7685F5",
+    "menuItemColor": "#EDD6D0",
+    "timeBlockColor": "#E3A37D",
+    "shouldOverwriteFont": false
+  },
+  "styles": {
+    "body": {
+      "font": "MonaspaceArgon-Regular",
+      "size": 14,
+      "color": "#EDD6D0",
+      "lineSpacing": 1,
+      "paragraphSpacing": 2
+    },
+    "tabbed": {
+      "headIndent": 10,
+      "lineSpacing": 1,
+      "paragraphSpacing": 2
+    },
+    "title1": {
+      "color": "#C3A0E1",
+      "size": 20,
+      "font": "MonaspaceArgon-WideBold"
+    },
+    "title-mark1": {
+      "color": "#4F4A6A",
+      "size": 20,
+      "font": "MonaspaceArgon-WideBold"
+    },
+    "title2": {
+      "color": "#93E2D5",
+      "size": 16,
+      "font": "MonaspaceArgon-WideMedium"
+    },
+    "title-mark2": {
+      "color": "#4F4A6A",
+      "size": 16,
+      "font": "MonaspaceArgon-WideMedium",
+      "paragraphSpacingBefore": 28
+    },
+    "title3": {
+      "color": "#CDD6F4",
+      "size": 13,
+      "font": "MonaspaceArgon-SemiWideLight",
+      "underlineStyle": 1
+    },
+    "title-mark3": {
+      "color": "#4F4A6A",
+      "size": 13,
+      "font": "MonaspaceArgon-SemiWideLight",
+      "paragraphSpacingBefore": 10
+    },
+    "title4": {
+      "color": "#85C1DC",
+      "size": 13,
+      "font": "MonaspaceArgon-LightItalic"
+    },
+    "title-mark4": {
+      "color": "#4F4A6A",
+      "size": 13,
+      "font": "MonaspaceArgon-LightItalic",
+      "paragraphSpacingBefore": 8
+    },
+    "bold": {
+      "color": "#92A9E9",
+      "font": "MonaspaceArgon-Bold"
+    },
+    "bold-left-mark": {
+      "color": "#4F4A6A"
+    },
+    "bold-right-mark": {
+      "color": "#4F4A6A"
+    },
+    "italic": {
+      "color": "#F5E3B5",
+      "font": "MonaspaceArgon-Italic"
+    },
+    "italic-left-mark": {
+      "color": "#4F4A6A"
+    },
+    "italic-right-mark": {
+      "color": "#4F4A6A"
+    },
+    "boldItalic": {
+      "color": "#E590A8",
+      "font": "MonaspaceArgon-BoldItalic"
+    },
+    "boldItalic-left-mark": {
+      "color": "#4F4A6A"
+    },
+    "boldItalic-right-mark": {
+      "color": "#4F4A6A"
+    },
+    "code": {
+      "font": "MonaspaceKrypton-Regular",
+      "color": "#9CD3CA",
+      "size": 14
+    },
+    "code-left-backtick": {
+      "color": "#4F4A6A"
+    },
+    "code-right-backtick": {
+      "color": "#4F4A6A"
+    },
+    "code-fence": {
+      "body": {
+        "font": "MonaspaceKrypton-Regular",
+        "size": 14
+      },
+      "language-specifier": {
+        "font": "MonaspaceRadon-Light",
+        "color": "#A4A1B7",
+        "size": 14
+      },
+      "fence-open": {
+        "color": "#4F4A6A"
+      },
+      "fence-close": {
+        "color": "#4F4A6A"
+      }
+    },
+    "checked": {
+      "color": "#AFD090",
+      "headIndent": 30
+    },
+    "todo": {
+      "font": "noteplanstate",
+      "color": "#D08E7C",
+      "headIndent": 30,
+      "size": 14
+    },
+    "checked-todo-characters": {
+      "font": "noteplanstate",
+      "headIndent": 30,
+      "size": 14
+    },
+    "special-char": {
+      "font": "MonaspaceArgon-Regular"
+    },
+    "quote-mark": {
+      "color": "#5D5F75",
+      "font": "noteplanstate",
+      "headIndent": 33,
+      "size": 16
+    },
+    "quote-content": {
+      "color": "#6D6F83",
+      "type": "italic",
+      "headIndent": 33
+    },
+    "flagged-1": {
+      "backgroundColor": "#313244"
+    },
+    "flagged-2": {
+      "backgroundColor": "#713255"
+    },
+    "flagged-3": {
+      "backgroundColor": "#BA2C46"
+    },
+    "working-on": {
+      "backgroundColor": "#77ABF2",
+      "color": "#232634"
+    },
+    "strikethrough": {
+      "color": "#62607E",
+      "strikethroughColor": "#62607E"
+    },
+    "strikethrough-left-tilde": {
+      "color": "#4F4A6A"
+    },
+    "strikethrough-right-tilde": {
+      "color": "#4F4A6A"
+    },
+    "underline": {
+      "underlineStyle": 2,
+      "underlineColor": "#FF84A8"
+    },
+    "underline-left-tilde": {
+      "color": "#44333333"
+    },
+    "underline-right-tilde": {
+      "color": "#44333333"
+    },
+    "link": {},
+    "schedule-to-date-link": {},
+    "done-date": {},
+    "schedule-from-date-link": {},
+    "note-title-link": {},
+    "hashtag": {},
+    "attag": {},
+    "phonenumber": {}
+  }
+}

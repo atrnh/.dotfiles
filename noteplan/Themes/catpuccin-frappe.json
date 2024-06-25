@@ -19,64 +19,61 @@
   },
   "styles": {
     "body": {
-      "font": "MonaspaceArgon-Regular",
-      "size": 14,
+      "font": "MonaspaceArgonVar-Regular",
+      "size": 13,
       "color": "#EDD6D0",
-      "lineSpacing": 1,
-      "paragraphSpacing": 2
+      "lineSpacing": 1
     },
     "tabbed": {
-      "headIndent": 10,
       "lineSpacing": 1,
-      "paragraphSpacing": 2
+      "headIndent": 1
     },
     "title1": {
       "color": "#C3A0E1",
       "size": 20,
-      "font": "MonaspaceArgon-WideBold"
+      "font": "MonaspaceArgonVar-WideBold"
     },
     "title-mark1": {
       "color": "#4F4A6A",
       "size": 20,
-      "font": "MonaspaceArgon-WideBold"
+      "font": "MonaspaceArgonVar-WideBold"
     },
     "title2": {
       "color": "#93E2D5",
       "size": 16,
-      "font": "MonaspaceArgon-WideMedium"
+      "font": "MonaspaceXenonVar-Regular"
     },
     "title-mark2": {
       "color": "#4F4A6A",
       "size": 16,
-      "font": "MonaspaceArgon-WideMedium",
+      "font": "MonaspaceArgonVar-WideMedium",
       "paragraphSpacingBefore": 28
     },
     "title3": {
       "color": "#CDD6F4",
       "size": 13,
-      "font": "MonaspaceArgon-SemiWideLight",
-      "underlineStyle": 1
+      "font": "MonaspaceRadonVar-Italic"
     },
     "title-mark3": {
       "color": "#4F4A6A",
       "size": 13,
-      "font": "MonaspaceArgon-SemiWideLight",
+      "font": "MonaspaceRadonVar-Italic",
       "paragraphSpacingBefore": 10
     },
     "title4": {
       "color": "#85C1DC",
       "size": 13,
-      "font": "MonaspaceArgon-LightItalic"
+      "font": "MonaspaceArgonVar-LightItalic"
     },
     "title-mark4": {
       "color": "#4F4A6A",
       "size": 13,
-      "font": "MonaspaceArgon-LightItalic",
-      "paragraphSpacingBefore": 8
+      "font": "MonaspaceArgonVar-LightItalic",
+      "paragraphSpacingBefore": 10
     },
     "bold": {
       "color": "#92A9E9",
-      "font": "MonaspaceArgon-Bold"
+      "font": "MonaspaceArgonVar-Bold"
     },
     "bold-left-mark": {
       "color": "#4F4A6A"
@@ -86,7 +83,7 @@
     },
     "italic": {
       "color": "#F5E3B5",
-      "font": "MonaspaceArgon-Italic"
+      "font": "MonaspaceArgonVar-Italic"
     },
     "italic-left-mark": {
       "color": "#4F4A6A"
@@ -96,7 +93,7 @@
     },
     "boldItalic": {
       "color": "#E590A8",
-      "font": "MonaspaceArgon-BoldItalic"
+      "font": "MonaspaceArgonVar-BoldItalic"
     },
     "boldItalic-left-mark": {
       "color": "#4F4A6A"
@@ -107,7 +104,7 @@
     "code": {
       "font": "MonaspaceKrypton-Regular",
       "color": "#9CD3CA",
-      "size": 14
+      "size": 13
     },
     "code-left-backtick": {
       "color": "#4F4A6A"
@@ -118,12 +115,12 @@
     "code-fence": {
       "body": {
         "font": "MonaspaceKrypton-Regular",
-        "size": 14
+        "size": 13
       },
       "language-specifier": {
-        "font": "MonaspaceRadon-Light",
+        "font": "MonaspaceRadonVar-Light",
         "color": "#A4A1B7",
-        "size": 14
+        "size": 13
       },
       "fence-open": {
         "color": "#4F4A6A"
@@ -148,7 +145,7 @@
       "size": 14
     },
     "special-char": {
-      "font": "MonaspaceArgon-Regular"
+      "font": "MonaspaceArgonVar-Regular"
     },
     "quote-mark": {
       "color": "#5D5F75",

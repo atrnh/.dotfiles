@@ -22,11 +22,11 @@
       "font": "MonaspaceArgonVar-Regular",
       "size": 13,
       "color": "#EDD6D0",
-      "lineSpacing": 1
+      "lineSpacing": -3
     },
     "tabbed": {
-      "lineSpacing": 1,
-      "headIndent": 1
+      "lineSpacing": -3,
+      "headIndent": 20
     },
     "title1": {
       "color": "#C3A0E1",
@@ -51,12 +51,12 @@
     },
     "title3": {
       "color": "#CDD6F4",
-      "size": 13,
+      "size": 15,
       "font": "MonaspaceRadonVar-Italic"
     },
     "title-mark3": {
       "color": "#4F4A6A",
-      "size": 13,
+      "size": 15,
       "font": "MonaspaceRadonVar-Italic",
       "paragraphSpacingBefore": 10
     },
@@ -115,12 +115,14 @@
     "code-fence": {
       "body": {
         "font": "MonaspaceKrypton-Regular",
-        "size": 13
+        "size": 13,
+        "lineSpacing": -5
       },
       "language-specifier": {
         "font": "MonaspaceRadonVar-Light",
         "color": "#A4A1B7",
-        "size": 13
+        "size": 12,
+        "lineSpacing": -8
       },
       "fence-open": {
         "color": "#4F4A6A"
@@ -131,18 +133,17 @@
     },
     "checked": {
       "color": "#AFD090",
-      "headIndent": 30
+      "headIndent": 28,
+      "lineSpacing": -3
     },
     "todo": {
       "font": "noteplanstate",
       "color": "#D08E7C",
-      "headIndent": 30,
-      "size": 14
+      "headIndent": 28,
+      "lineSpacing": -3
     },
     "checked-todo-characters": {
-      "font": "noteplanstate",
-      "headIndent": 30,
-      "size": 14
+      "font": "noteplanstate"
     },
     "special-char": {
       "font": "MonaspaceArgonVar-Regular"
@@ -150,13 +151,15 @@
     "quote-mark": {
       "color": "#5D5F75",
       "font": "noteplanstate",
-      "headIndent": 33,
-      "size": 16
+      "headIndent": 28,
+      "lineSpacing": -8
     },
     "quote-content": {
       "color": "#6D6F83",
       "type": "italic",
-      "headIndent": 33
+      "lineSpacing": -4,
+      "headIndent": 2,
+      "size": 12
     },
     "flagged-1": {
       "backgroundColor": "#313244"

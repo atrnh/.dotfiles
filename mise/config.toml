@@ -1,0 +1,15 @@
+[tools]
+python = "latest"
+node = "latest"
+"npm:yarn" = "latest"
+poetry = "latest"
+
+[settings]
+experimental = true
+python_compile = true
+trusted_config_paths = [
+  "~/work/*",
+  "~/personal/*"
+]
+status = { missing_tools = "if_other_versions_installed", show_env = true, show_tools = false }
+

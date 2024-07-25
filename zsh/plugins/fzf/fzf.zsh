@@ -63,10 +63,10 @@ if [ "$(command -v fzf)" ]; then
 
   if [ "$(command -v rg)" ]; then
     fzrg() {
-      local rg_prefix='rg --column --line-number --no-heading --color=always --smart-case'
+      local rg_prefix='rg --no-heading --color=always --smart-case'
       fzf --bind "start:reload:$rg_prefix \"\"" \
         --bind "change:reload:$rg_prefix {q} || true" \
-        --bind "enter:become(cat {1})" \
+        --bind "enter:become(echo {1} | cut -d ':' -f 1 | pbcopy && echo '-- Copied to clipboard')" \
         --ansi --disabled \
         --height=50% --layout=reverse
     }

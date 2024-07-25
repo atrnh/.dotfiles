@@ -1,0 +1,6 @@
+jeffreytse/zsh-vi-mode
+getantidote/use-omz
+ohmyzsh/ohmyzsh path:plugins/git
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-syntax-highlighting
+~/.config/zsh path:plugins/macchina

@@ -12,13 +12,6 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[diff]
-  tool = vscode
-  submodule = log
-[difftool "default-difftool"]
-  cmd = diff
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
 [submodule]
   recurse = true
 [credential "https://github.com"]
@@ -27,7 +20,6 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential]
 	helper = !/opt/homebrew/bin/gh auth git-credential
-
 [pager]
 	diff = riff
 	show = riff

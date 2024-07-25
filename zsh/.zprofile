@@ -8,11 +8,12 @@ export LOCAL_BUNDLES="$DOTFILES_REPO/zsh"
 export MANPATH=/usr/local/man:/opt/local/share/man:$MANPATH
 
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
-  export EDITOR='nvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='nvim'
+# else
+#   export EDITOR='nvim'
+# fi
+export EDITOR=nvim
 
 export LANG=en_US.UTF-8
 

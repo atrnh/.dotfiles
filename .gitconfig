@@ -1,34 +1,36 @@
 [user]
-	email = itsashley@hey.com
 	name = Ashley Trinh
+	email = itsashley@hey.com
+[init]
+	defaultBranch = main
 [pull]
-	rebase = false
+	rebase = true
+[push]
+  recurseSubmodules = check
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [diff]
-    tool = default-difftool
-	submodule = log
+  tool = vscode
+  submodule = log
 [difftool "default-difftool"]
-    cmd = code --wait --diff $LOCAL $REMOTE
-[init]
-	defaultBranch = main
-[core]
-	editor = code --wait
+  cmd = diff
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
 [submodule]
-	recurse = true
-[push]
-	recurseSubmodules = check
+  recurse = true
 [credential "https://github.com"]
-	helper = 
-	helper = !/usr/local/bin/gh auth git-credential
+	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/local/bin/gh auth git-credential
+	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential]
-	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager
-[credential "https://dev.azure.com"]
-	useHttpPath = true
+	helper = !/opt/homebrew/bin/gh auth git-credential
+
+[pager]
+	diff = riff
+	show = riff
+	log = riff
+[interactive]
+	diffFilter = riff --color=on

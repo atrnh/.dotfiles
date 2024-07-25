@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+export CONF_DIR=$HOME/.config
+
+# Create ~/.config directory if it doesn't exist
+mkdir -p $CONF_DIR
+local parent_dir=$(realpath $(dirname "$0"))
+for dir in "$parent_dir"/*/; do
+  local basename=$(basename $dir)
+  if [ ! -d $CONF_DIR/$basename ]; then
+    ln -s $dir $CONF_DIR/$basename
+  fi
+done

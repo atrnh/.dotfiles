@@ -3,7 +3,26 @@ return {
   event = "VeryLazy",
   opts = {},
   keys = {
-    { "z", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-    { "Z", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-  }
+    {
+      "z",
+      mode = { "n", "x", "o" },
+      function()
+        require("flash").jump({
+          search = { multi_window = false },
+        })
+      end,
+      desc = "Flash",
+    },
+    {
+      "Z",
+      mode = { "n", "x", "o" },
+      function()
+        require("flash").treesitter({
+          search = { multi_window = false },
+        })
+      end,
+      desc = "Flash Treesitter",
+    },
+  },
 }
+

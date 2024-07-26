@@ -8,22 +8,7 @@ compinit -C
 # Starship
 eval "$(starship init zsh)"
 
-# Antigen
-# source "$(brew --prefix)/share/antigen/antigen.zsh"
-
-# antigen use oh-my-zsh
-# antigen bundle git
-# antigen bundle vi-mode
-# antigen bundle zsh-users/zsh-history-substring-search
-# antigen bundle zsh-users/zsh-syntax-highlighting
-# antigen bundle jeffreytse/zsh-vi-mode
-
-# # Local bundles
-# for bundle in $LOCAL_BUNDLES/plugins/*; do
-#   antigen bundle $bundle --no-local-clone
-# done
-
-# antigen apply
+# Antidote
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load
 

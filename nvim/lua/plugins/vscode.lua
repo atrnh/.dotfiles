@@ -1,49 +1,82 @@
+if not vim.g.vscode then
+  return {}
+end
+
+local enabled = {
+  "vim-repeat",
+  "vim-sandwich",
+  "flash.nvim",
+  "nvim-treesitter",
+  "nvim-treesitter-textobjects",
+  "nvim-ts-context-commentstring",
+  "ts-comments.nvim",
+  "vim-table-mode",
+  "rst-sections",
+  "LazyVim",
+}
+
+local Config = require("lazy.core.config")
+Config.options.checker.enabled = false
+Config.options.change_detection.enabled = false
+Config.options.defaults.cond = function(plugin)
+  return vim.tbl_contains(enabled, plugin.name) or plugin.vscode
+end
+
+-- VS Code keymap and command overrides
+local vscode = require("vscode")
+-- Keymap
+vim.api.nvim_create_autocmd("User", {
+  pattern = "LazyVimKeymapsDefaults",
+  callback = function()
+    local map = vim.keymap.set
+    map({ "n", "v" }, "<leader>cr", function()
+      vscode.call("rewrap.rewrapComment")
+      vscode.notify("Called rewrap")
+    end, { desc = "Rewrap", noremap = true })
+
+    map({ "n", "v" }, "<leader>cf", function()
+      vscode.call("editor.action.formatSelection")
+      vscode.notify("Called formatSelection")
+    end, { desc = "Format" })
+
+    map(
+      { "o", "x" },
+      "gc",
+      "<Cmd>call VSCodeCall('editor.action.commentLine')<CR><Esc>",
+      { desc = "Toggle comment", noremap = true }
+    )
+
+    map(
+      "n",
+      "gc",
+      "<Cmd>call VSCodeCall('editor.action.commentLine')<CR><Escc>",
+      { desc = "Toggle comment linewise", noremap = true }
+    )
+  end,
+})
+
+local function init(_)
+  local nvim_set_hl = vim.api.nvim_set_hl
+  nvim_set_hl(0, "FlashCurrent", { fg = "#6C7086", underline = true })
+  nvim_set_hl(0, "FlashBackdrop", { fg = "#6C7086" })
+  nvim_set_hl(0, "FlashMatch", { fg = "#CDD6F4", bg = "#2B2B3C" })
+  nvim_set_hl(0, "FlashLabel", { fg = "#FF7CBC", bold = true, underline = true })
+end
+
 return {
-  -- Syntax plugins
+  {
+    "LazyVim/LazyVim",
+    init = init,
+    config = function(_, opts)
+      opts = opts or {}
+      -- disable the colorscheme
+      opts.colorscheme = function() end
+      require("lazyvim").setup(opts)
+    end,
+  },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      highlight = {
-        enable = not vim.g.vscode,
-      },
-    },
+    opts = { highlight = { enable = false } },
   },
-  { "nvim-treesitter/playground", enabled = not vim.g.vscode },
-  { "LuaSnip", enabled = not vim.g.vscode },
-  { "alpha-nvim", enabled = not vim.g.vscode },
-  { "bufferline.nvim", enabled = not vim.g.vscode },
-  { "catppuccin", enabled = not vim.g.vscode },
-  { "cmp-buffer", enabled = not vim.g.vscode },
-  { "cmp-nvim-lsp", enabled = not vim.g.vscode },
-  { "cmp-path", enabled = not vim.g.vscode },
-  { "cmp_luasnip", enabled = not vim.g.vscode },
-  { "dressing.nvim", enabled = not vim.g.vscode },
-  { "friendly-snippets", enabled = not vim.g.vscode },
-  { "gitsigns.nvim", enabled = not vim.g.vscode },
-  { "lukas-reineke/indent-blankline.nvim", enabled = not vim.g.vscode },
-  { "lazy.nvim", enabled = not vim.g.vscode },
-  { "lualine.nvim", enabled = not vim.g.vscode },
-  { "mason-lspconfig.nvim", enabled = not vim.g.vscode },
-  { "mason.nvim", enabled = not vim.g.vscode },
-  { "neo-tree.nvim", enabled = not vim.g.vscode },
-  { "nvim-cmp", enabled = not vim.g.vscode },
-  { "nvim-lspconfig", enabled = not vim.g.vscode },
-  { "nvim-navic", enabled = not vim.g.vscode },
-  { "nvim-notify", enabled = not vim.g.vscode },
-  { "nvim-spectre", enabled = not vim.g.vscode },
-  { "nvim-web-devicons", enabled = not vim.g.vscode },
-  { "obsidian", enabled = not vim.g.vscode },
-  { "playground", enabled = not vim.g.vscode },
-  { "plenary.nvim", enabled = not vim.g.vscode },
-  { "telescope.nvim", enabled = not vim.g.vscode },
-  { "trouble.nvim", enabled = not vim.g.vscode },
-  { "vim-illuminate", enabled = not vim.g.vscode },
-  { "which-key.nvim", enabled = not vim.g.vscode },
-  { "noice.nvim", enabled = not vim.g.vscode },
-  { "nui.nvim", enabled = not vim.g.vscode },
-  { "dashboard-nvim", enabled = not vim.g.vscode },
-  { "conform.nvim", enabled = not vim.g.vscode },
-  { "nvim-lint", enabled = not vim.g.vscode },
-  { "mini.pairs", enabled = not vim.g.vscode },
-  { "persistence.nvim", enabled = not vim.g.vscode },
 }
+

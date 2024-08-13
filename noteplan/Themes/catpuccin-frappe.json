@@ -202,6 +202,30 @@
     "underline-right-tilde": {
       "color": "#44333333"
     },
+    "highlighted": {
+      "regex": "(::)(.+?)(::)",
+      "matchposition": 2,
+      "isRevealOnCursorRange": true,
+      "backgroundColor": "#F9E2AF"
+    },
+    "highlighted-left-colon": {
+      "regex": "(::)(.+?)(::)",
+      "matchposition": 1,
+      "isMarkdownCharacter": true,
+      "isHiddenWithoutCursor": true,
+      "isRevealOnCursorRange": true,
+      "color": "#44333333",
+      "backgroundColor": "#F9E2AF"
+    },
+    "highlighted-right-colon": {
+      "regex": "(::)(.+?)(::)",
+      "matchposition": 3,
+      "isMarkdownCharacter": true,
+      "isHiddenWithoutCursor": true,
+      "isRevealOnCursorRange": true,
+      "color": "#44333333",
+      "backgroundColor": "#F9E2AF"
+    },
     "link": {},
     "schedule-to-date-link": {},
     "done-date": {},

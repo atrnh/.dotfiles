@@ -41,9 +41,6 @@ case $@ in
 "Thunderbird")
 	icon_result=":thunderbird:"
 	;;
-"Notes" | "NotePlan")
-	icon_result=":notes:"
-	;;
 "Caprine")
 	icon_result=":caprine:"
 	;;
@@ -109,6 +106,12 @@ case $@ in
 	;;
 "Notability")
 	icon_result=":notability:"
+	;;
+"NotePlan")
+	icon_result=":sun:"
+	;;
+"Notes")
+	icon_result=":notes:"
 	;;
 "WhatsApp")
 	icon_result=":whats_app:"

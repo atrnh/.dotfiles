@@ -11,7 +11,7 @@ local enabled = {
   "nvim-ts-context-commentstring",
   "ts-comments.nvim",
   "vim-table-mode",
-  "rst-sections",
+  "vim-rst-sections",
   "LazyVim",
 }
 
@@ -29,6 +29,7 @@ vim.api.nvim_create_autocmd("User", {
   pattern = "LazyVimKeymapsDefaults",
   callback = function()
     local map = vim.keymap.set
+
     map({ "n", "v" }, "<leader>cr", function()
       vscode.call("rewrap.rewrapComment")
       vscode.notify("Called rewrap")
@@ -49,18 +50,22 @@ vim.api.nvim_create_autocmd("User", {
     map(
       "n",
       "gc",
-      "<Cmd>call VSCodeCall('editor.action.commentLine')<CR><Escc>",
+      "<Cmd>call VSCodeCall('editor.action.commentLine')<CR><Esc>",
       { desc = "Toggle comment linewise", noremap = true }
     )
+
+    map("v", "sw", function()
+      vscode.call("editor.action.surroundWithSnippet")
+    end, { desc = "Surround with snippet", noremap = true })
   end,
 })
 
 local function init(_)
   local nvim_set_hl = vim.api.nvim_set_hl
-  nvim_set_hl(0, "FlashCurrent", { fg = "#6C7086", underline = true })
-  nvim_set_hl(0, "FlashBackdrop", { fg = "#6C7086" })
-  nvim_set_hl(0, "FlashMatch", { fg = "#CDD6F4", bg = "#2B2B3C" })
-  nvim_set_hl(0, "FlashLabel", { fg = "#FF7CBC", bold = true, underline = true })
+  nvim_set_hl(0, "FlashCurrent", { fg = "#6c7086", underline = true })
+  nvim_set_hl(0, "FlashBackdrop", { fg = "#6c7086" })
+  nvim_set_hl(0, "FlashMatch", { fg = "#cdd6f4", bg = "#2b2b3c" })
+  nvim_set_hl(0, "FlashLabel", { fg = "#e3ff61", bold = true, underline = true })
 end
 
 return {
@@ -79,4 +84,3 @@ return {
     opts = { highlight = { enable = false } },
   },
 }
-

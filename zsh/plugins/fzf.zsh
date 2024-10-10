@@ -1,14 +1,12 @@
-if [ "$(command -v fzf)" ]; then
-  local brew_prefix=$(brew --prefix)
-  # Setup fzf
-  if [[ ! "$PATH" == *$brew_prefix/opt/fzf/bin* ]]; then
-    PATH="${PATH:+${PATH}:}$brew_prefix/opt/fzf/bin"
-  fi
-  # Auto-completion
-  [[ $- == *i* ]] && source "$brew_prefix/opt/fzf/shell/completion.zsh" 2> /dev/null
-  # Key bindings
-  source "$brew_prefix/opt/fzf/shell/key-bindings.zsh"
+local brew_prefix=$(brew --prefix)
+# Setup fzf
+if [[ ! "$PATH" == *$brew_prefix/opt/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}$brew_prefix/opt/fzf/bin"
+fi
 
+source <(fzf --zsh)
+
+if [ "$(command -v fzf)" ]; then
   export FZF_DEFAULT_OPTS=" \
     --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
     --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
@@ -17,6 +15,7 @@ if [ "$(command -v fzf)" ]; then
     --pointer='' \
     --marker='' \
     --prompt='  ' \
+    --ansi \
     --bind 'ctrl-/:toggle-preview'"
 
   export FZF_CTRL_T_OPTS="
@@ -63,14 +62,32 @@ if [ "$(command -v fzf)" ]; then
 
   if [ "$(command -v rg)" ]; then
     fzrg() {
-      local rg_prefix='rg --no-heading --color=always --smart-case'
-      fzf --bind "start:reload:$rg_prefix \"\"" \
-        --bind "change:reload:$rg_prefix {q} || true" \
-        --bind "enter:become(echo {1} | cut -d ':' -f 1 | pbcopy && echo '-- Copied to clipboard')" \
-        --ansi --disabled \
-        --height=50% --layout=reverse
+      local rg_prefix="rg --no-heading --color=always --smart-case "
+      fzf --disabled --query "${*:-}" \
+        --bind "start:reload:$rg_prefix {q}" \
+        --bind "change:reload:sleep 0.1; $rg_prefix {q} || true" \
+        --delimiter : \
+        --bind "enter:become(echo {1})" \
+        --layout=reverse
     }
   fi
+
+  _gh_issue_list() {
+    gh issue list --json number,title,updatedAt --template \
+      '{{tablerow "NUM" "TITLE" "UPDATED"}}{{range .}}{{tablerow .number .title (timeago .updatedAt)}}{{end}}{{tablerender}}'
+  }
+
+  ghid() {
+    local issue_num=$(gh issue list --json number,title,updatedAt --template \
+      '{{tablerow "NUM" "TITLE" "UPDATED"}}{{range .}}{{tablerow .number .title (timeago .updatedAt)}}{{end}}{{tablerender}}' \
+       | fzf --reverse --prompt='gh issue develop  ' --header='' --header-lines=1 --info=inline --height=40% \
+       | tr -s ' ' \
+       | cut -d ' ' -f 1)
+    if [ -z "$issue_num" ]; then
+      return
+    fi
+    gh issue develop $issue_num --checkout
+  }
 
   _fzf_comprun() {
     local command=$1
@@ -82,8 +99,39 @@ if [ "$(command -v fzf)" ]; then
         --info=inline \
         --height=100% \
         --prompt=' ' \
+        --bind 'enter:become(nvim {} < /dev/tty > /dev/tty)' \
         "$@" ;;
+      gh)
+        local gh_cmd=$1
+        shift
+        local gh_subcmd=$1
+        shift
+        case "$gh_cmd" in
+          issue) fzf --preview-window hidden "$@" ;;
+          *) fzf "$@" ;;
+        esac ;;
       *) fzf --preview 'bat -n --color=always {}' "$@" ;;
     esac
   }
+
+  _fzf_complete_gco() {
+    _fzf_complete --reverse --prompt="git checkout  " \
+      --preview-window hidden \
+      --header="Search for a branch" \
+      -- "$@" < <(
+
+      # git branch --sort=-committerdate --sort=-HEAD --color=never \
+      #   --format=$'%(HEAD)\t%(refname:short)\t%(committerdate:relative)'
+        git branch --sort=-committerdate --sort=-HEAD --format=$'%(refname:short)'
+      )
+  }
+
+  _fzf_complete_ghid() {
+    _fzf_complete --reverse --header='' --header-lines=1 \
+      -- "$@" < <(
+          gh issue list --json number,title,updatedAt --template \
+            '{{tablerow "NUM" "TITLE" "UPDATED"}}{{range .}}{{tablerow .number .title (timeago .updatedAt)}}{{end}}{{tablerender}}'
+        )
+  }
 fi
+

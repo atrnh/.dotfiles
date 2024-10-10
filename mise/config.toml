@@ -3,6 +3,7 @@ python = "latest"
 node = "latest"
 "npm:yarn" = "latest"
 poetry = "latest"
+watchexec = "latest"
 
 [settings]
 experimental = true

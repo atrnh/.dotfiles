@@ -14,7 +14,7 @@
     "toolbarBackgroundColor": "#424557",
     "toolbarIconColor": "#7685F5",
     "menuItemColor": "#EDD6D0",
-    "timeBlockColor": "#E3A37D",
+    "timeBlockColor": "#FAB387",
     "shouldOverwriteFont": false
   },
   "styles": {
@@ -25,8 +25,7 @@
       "lineSpacing": -3
     },
     "tabbed": {
-      "lineSpacing": -3,
-      "headIndent": 20
+      "lineSpacing": -3
     },
     "title1": {
       "color": "#C3A0E1",
@@ -35,7 +34,7 @@
       "lineSpacing": -3
     },
     "title-mark1": {
-      "color": "#4F4A6A",
+      "color": "#9299B4",
       "size": 20,
       "font": "MonaspaceArgonVar-WideBold",
       "lineSpacing": -3
@@ -47,7 +46,7 @@
       "lineSpacing": -3
     },
     "title-mark2": {
-      "color": "#4F4A6A",
+      "color": "#9299B4",
       "size": 16,
       "font": "MonaspaceArgonVar-WideMedium",
       "paragraphSpacingBefore": 28,
@@ -60,7 +59,7 @@
       "lineSpacing": -3
     },
     "title-mark3": {
-      "color": "#4F4A6A",
+      "color": "#9299B4",
       "size": 14,
       "font": "MonaspaceRadonVar-Italic",
       "paragraphSpacingBefore": 8,
@@ -73,7 +72,7 @@
       "lineSpacing": -3
     },
     "title-mark4": {
-      "color": "#4F4A6A",
+      "color": "#9299B4",
       "size": 13,
       "font": "MonaspaceArgonVar-LightItalic",
       "paragraphSpacingBefore": 10,
@@ -84,41 +83,41 @@
       "font": "MonaspaceArgonVar-Bold"
     },
     "bold-left-mark": {
-      "color": "#4F4A6A"
+      "color": "#9299B4"
     },
     "bold-right-mark": {
-      "color": "#4F4A6A"
+      "color": "#9299B4"
     },
     "italic": {
       "color": "#94E59A",
       "font": "MonaspaceArgonVar-Italic"
     },
     "italic-left-mark": {
-      "color": "#4F4A6A"
+      "color": "#9299B4"
     },
     "italic-right-mark": {
-      "color": "#4F4A6A"
+      "color": "#9299B4"
     },
     "boldItalic": {
       "color": "#E590A8",
       "font": "MonaspaceArgonVar-BoldItalic"
     },
     "boldItalic-left-mark": {
-      "color": "#4F4A6A"
+      "color": "#9299B4"
     },
     "boldItalic-right-mark": {
-      "color": "#4F4A6A"
+      "color": "#9299B4"
     },
     "code": {
       "font": "MonaspaceKrypton-Regular",
-      "color": "#9CD3CA",
+      "color": "#ABB2BE",
       "size": 13
     },
     "code-left-backtick": {
-      "color": "#4F4A6A"
+      "color": "#9299B4"
     },
     "code-right-backtick": {
-      "color": "#4F4A6A"
+      "color": "#9299B4"
     },
     "code-fence": {
       "body": {
@@ -133,10 +132,10 @@
         "lineSpacing": -8
       },
       "fence-open": {
-        "color": "#4F4A6A"
+        "color": "#9299B4"
       },
       "fence-close": {
-        "color": "#4F4A6A"
+        "color": "#9299B4"
       }
     },
     "checked": {
@@ -179,7 +178,7 @@
       "backgroundColor": "#BA2C46"
     },
     "working-on": {
-      "backgroundColor": "#77ABF2",
+      "backgroundColor": "#977EBB",
       "color": "#232634"
     },
     "strikethrough": {
@@ -187,44 +186,35 @@
       "strikethroughColor": "#62607E"
     },
     "strikethrough-left-tilde": {
-      "color": "#4F4A6A"
+      "color": "#9299B4",
+      "font": "MonaspaceArgonVar-Bold"
     },
     "strikethrough-right-tilde": {
-      "color": "#4F4A6A"
+      "color": "#9299B4",
+      "font": "MonaspaceArgonVar-Bold"
     },
     "underline": {
       "underlineStyle": 2,
       "underlineColor": "#FF84A8"
     },
     "underline-left-tilde": {
-      "color": "#44333333"
+      "color": "#9299B4",
+      "font": "MonaspaceArgonVar-Bold"
     },
     "underline-right-tilde": {
-      "color": "#44333333"
+      "color": "#9299B4",
+      "font": "MonaspaceArgonVar-Bold"
     },
     "highlighted": {
-      "regex": "(::)(.+?)(::)",
-      "matchposition": 2,
-      "isRevealOnCursorRange": true,
-      "backgroundColor": "#F9E2AF"
+      "backgroundColor": "#3E4D4A"
     },
-    "highlighted-left-colon": {
-      "regex": "(::)(.+?)(::)",
-      "matchposition": 1,
-      "isMarkdownCharacter": true,
-      "isHiddenWithoutCursor": true,
-      "isRevealOnCursorRange": true,
-      "color": "#44333333",
-      "backgroundColor": "#F9E2AF"
+    "highlighted-left-marker": {
+      "color": "#9299B4",
+      "font": "MonaspaceArgonVar-Bold"
     },
-    "highlighted-right-colon": {
-      "regex": "(::)(.+?)(::)",
-      "matchposition": 3,
-      "isMarkdownCharacter": true,
-      "isHiddenWithoutCursor": true,
-      "isRevealOnCursorRange": true,
-      "color": "#44333333",
-      "backgroundColor": "#F9E2AF"
+    "highlighted-right-marker": {
+      "color": "#9299B4",
+      "font": "MonaspaceArgonVar-Bold"
     },
     "link": {},
     "schedule-to-date-link": {},

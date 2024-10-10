@@ -1,0 +1,4 @@
+hackernews ()
+{
+  clx -n -a
+}

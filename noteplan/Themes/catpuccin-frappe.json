@@ -6,7 +6,7 @@
     "email": "itsashley@hey.com"
   },
   "editor": {
-    "backgroundColor": "#242633",
+    "backgroundColor": "#1E1E2E",
     "altBackgroundColor": "#313445",
     "tintColor": "#91ACEE",
     "tintColor2": "#E3A37D",
@@ -79,7 +79,7 @@
       "lineSpacing": -3
     },
     "bold": {
-      "color": "#FFAF7F",
+      "color": "#F9E2AF",
       "font": "MonaspaceArgonVar-Bold"
     },
     "bold-left-mark": {
@@ -89,7 +89,7 @@
       "color": "#9299B4"
     },
     "italic": {
-      "color": "#94E59A",
+      "color": "#EBA0AD",
       "font": "MonaspaceArgonVar-Italic"
     },
     "italic-left-mark": {
@@ -99,7 +99,7 @@
       "color": "#9299B4"
     },
     "boldItalic": {
-      "color": "#E590A8",
+      "color": "#A6E3A1",
       "font": "MonaspaceArgonVar-BoldItalic"
     },
     "boldItalic-left-mark": {

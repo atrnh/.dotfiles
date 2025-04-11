@@ -7,22 +7,23 @@
              spacebar -m config foreground_color 0xff000000
 
 :: window : spacebar -m config background_color 0x850b4499; \
-             spacebar -m config foreground_color 0xffffffff
+            spacebar -m config foreground_color 0xffffffff
 
 default < lctrl - 0x29 ; prefix
-
+prefix < escape ; default
 prefix < 0x9A ; default
-window < escape ; default
-desktop < escape ; default
-# spacemode < escape ; default
 
-prefix < w ; window
-prefix < d ; desktop
-
-prefix < h : yabai -m window --focus west; skhd -k "0x9A"
-prefix < j : yabai -m window --focus south; skhd -k "0x9A"
-prefix < k : yabai -m window --focus north; skhd -k "0x9A"
-prefix < l : yabai -m window --focus east; skhd -k "0x9A"
+default < lctrl + alt + shift + cmd - r : yabai -m space --rotate 90
+default < lctrl + alt + shift + cmd - b : yabai -m space --layout bsp; skhd -k "0x9A"
+default < lctrl + alt + shift + cmd - f : yabai -m space --layout float; skhd -k "0x9A"
+default < lctrl + alt + shift + cmd - 5 : skhd -k "shift + cmd - 5"
+default < lctrl + alt + shift + cmd - 2 : skhd -k "shift + cmd - 2"
+default < lctrl + alt + shift + cmd - a : skhd -k "cmd - a"
+default < lctrl + alt + shift + cmd - c : skhd -k "cmd - c"
+default < lctrl + alt + shift + cmd - v : skhd -k "cmd - v"
+default < lctrl + alt + shift + cmd - return : skhd -k "shift - return"
+default < lctrl + alt + shift + cmd - delete : skhd -k "alt - delete"
+default < lctrl + alt + shift + cmd - q : skhd -k "lctrl + alt + shift - q"
 
 default < lctrl + alt + shift + cmd - h : yabai -m window --focus west
 default < lctrl + alt + shift + cmd - j : yabai -m window --focus south
@@ -35,6 +36,19 @@ default < lctrl + alt + shift + cmd - up : yabai -m window --swap north;
 default < lctrl + alt + shift + cmd - left : yabai -m window --swap west;
 default < lctrl + alt + shift + cmd - down : yabai -m window --swap south;
 default < lctrl + alt + shift + cmd - right : yabai -m window --swap east;
+
+prefix < h : yabai -m window --focus west; skhd -k "0x9A"
+prefix < j : yabai -m window --focus south; skhd -k "0x9A"
+prefix < k : yabai -m window --focus north; skhd -k "0x9A"
+prefix < l : yabai -m window --focus east; skhd -k "0x9A"
+
+# open quick terminal (this shortcut is configured in ghostty conf)
+prefix < t : skhd -k "cmd - 0x32"; skhd -k "0x9A"
+
+prefix < w ; window
+prefix < d ; desktop
+
+window < escape ; default
 
 window < j : yabai -m window --swap south
 window < k : yabai -m window --swap north
@@ -62,19 +76,9 @@ window < 0x17 : yabai -m window --space 5; skhd -k "escape"
 window < p : yabai -m window --space prev; skhd -k "escape"
 window < n : yabai -m window --space next; skhd -k "escape"
 
+desktop < escape ; default
+
 desktop < r : yabai -m space --rotate 90
 desktop < b : yabai -m space --layout bsp; skhd -k "fn - escape"
 desktop < f : yabai -m space --layout float; skhd -k "fn - escape"
-
-default < lctrl + alt + shift + cmd - r : yabai -m space --rotate 90
-default < lctrl + alt + shift + cmd - b : yabai -m space --layout bsp; skhd -k "0x9A"
-default < lctrl + alt + shift + cmd - f : yabai -m space --layout float; skhd -k "0x9A"
-default < lctrl + alt + shift + cmd - 5 : skhd -k "shift + cmd - 5"
-default < lctrl + alt + shift + cmd - 2 : skhd -k "shift + cmd - 2"
-default < lctrl + alt + shift + cmd - a : skhd -k "cmd - a"
-default < lctrl + alt + shift + cmd - c : skhd -k "cmd - c"
-default < lctrl + alt + shift + cmd - v : skhd -k "cmd - v"
-default < lctrl + alt + shift + cmd - return : skhd -k "shift - return"
-default < lctrl + alt + shift + cmd - delete : skhd -k "alt - delete"
-default < lctrl + alt + shift + cmd - q : skhd -k "lctrl + alt + shift - q"
 

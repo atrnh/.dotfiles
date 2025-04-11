@@ -1,13 +1,14 @@
 [tool.poetry]
 name = "poetry-instance"
-version = "1.8.2"
+version = "1.8.4"
 description = ""
 authors = []
 license = ""
+package-mode = false
 
 [tool.poetry.dependencies]
-python = "3.12.2"
-poetry = "^1.8.2"
+python = "3.13.0"
+poetry = "1.8.4"
 
 [tool.poetry.group.additional.dependencies]
 poetry-dotenv-plugin = "^0.2.0"

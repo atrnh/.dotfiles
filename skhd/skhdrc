@@ -1,21 +1,42 @@
-:: default : spacebar -m config background_color 0xff202020; \
-             spacebar -m config foreground_color 0xffffffff
+:: prefix : sleep 0.5; skhd -k "0x9A"
 
-:: prefix : sleep 0.7; skhd -k "0x9A"
+:: default : \
+  sketchybar --bar color=0xff1d1d2d; \
+  sketchybar --set /./ \
+    label.color=0xfff5e0dc; \
+  sketchybar --set /space/ \
+    label.background.color=0xff313244 \
+    icon.highlight_color=0xffeba0ac; \
+  sketchybar --set /volume/ \
+    icon.color=0xfff38ba8; \
+  sketchybar --set /apple/ \
+    icon.color=0xffa6e3a1;
 
-:: desktop : spacebar -m config background_color 0xfff7e968; \
-             spacebar -m config foreground_color 0xff000000
+# dark purple
+:: window : \
+  sketchybar --bar color=0xff65469f; \
+  sketchybar --set /./ label.color=0xffaaa6e7; \
+  sketchybar --set /space/ \
+    label.background.color=0xff65469f \
+    icon.highlight_color=0xffaaa6e7; \
+  sketchybar --set /volume/ \
+    icon.color=0xffaaa6e7; \
+  sketchybar --set /apple/ \
+    icon.color=0xffaaa6e7;
+            
 
-:: window : spacebar -m config background_color 0x850b4499; \
-            spacebar -m config foreground_color 0xffffffff
+# dark green
+:: desktop : sketchybar --bar color=0xff476f50
+
 
 default < lctrl - 0x29 ; prefix
-prefix < escape ; default
+
+# set up time out
 prefix < 0x9A ; default
 
 default < lctrl + alt + shift + cmd - r : yabai -m space --rotate 90
-default < lctrl + alt + shift + cmd - b : yabai -m space --layout bsp; skhd -k "0x9A"
-default < lctrl + alt + shift + cmd - f : yabai -m space --layout float; skhd -k "0x9A"
+default < lctrl + alt + shift + cmd - b : yabai -m space --layout bsp
+default < lctrl + alt + shift + cmd - f : yabai -m space --layout float
 default < lctrl + alt + shift + cmd - 5 : skhd -k "shift + cmd - 5"
 default < lctrl + alt + shift + cmd - 2 : skhd -k "shift + cmd - 2"
 default < lctrl + alt + shift + cmd - a : skhd -k "cmd - a"
@@ -37,23 +58,38 @@ default < lctrl + alt + shift + cmd - left : yabai -m window --swap west;
 default < lctrl + alt + shift + cmd - down : yabai -m window --swap south;
 default < lctrl + alt + shift + cmd - right : yabai -m window --swap east;
 
-prefix < h : yabai -m window --focus west; skhd -k "0x9A"
-prefix < j : yabai -m window --focus south; skhd -k "0x9A"
-prefix < k : yabai -m window --focus north; skhd -k "0x9A"
-prefix < l : yabai -m window --focus east; skhd -k "0x9A"
+prefix < escape ; default
+
+prefix < h : yabai -m window --focus west; skhd -k "escape"
+prefix < j : yabai -m window --focus south; skhd -k "escape"
+prefix < k : yabai -m window --focus north; skhd -k "escape"
+prefix < l : yabai -m window --focus east; skhd -k "escape"
+
+# overkill??
+# `[` key to go previous, `]` to go next
+# prefix < 0x21 : yabai -m window --focus prev; skhd -k "escape"
+# prefix < 0x1E : yabai -m window --focus next; skhd -k "escape"
 
 # open quick terminal (this shortcut is configured in ghostty conf)
-prefix < t : skhd -k "cmd - 0x32"; skhd -k "0x9A"
+prefix < t : skhd -k "cmd - 0x32"; skhd -k "escape"
 
 prefix < w ; window
 prefix < d ; desktop
 
 window < escape ; default
 
-window < j : yabai -m window --swap south
-window < k : yabai -m window --swap north
-window < h : yabai -m window --swap west
-window < l : yabai -m window --swap east
+window < j : yabai -m window --swap south; skhd -k "escape"
+window < k : yabai -m window --swap north; skhd -k "escape"
+window < h : yabai -m window --swap west; skhd -k "escape"
+window < l : yabai -m window --swap east; skhd -k "escape"
+
+window < p : yabai -m window --toggle zoom-parent; skhd -k "escape"
+window < shift - p : yabai -m window --toggle zoom-fullscreen; skhd -k "escape"
+
+# `.` to toggle splitting horizontally/vertically
+window < 0x2F : yabai -m window --toggle split; skhd -k "escape"
+
+
 window < a : yabai -m window --resize left:-20:0
 window < s : yabai -m window --resize bottom:0:20
 window < w : yabai -m window --resize top:0:-20
@@ -62,11 +98,10 @@ window < shift - a : yabai -m window --resize left:20:0
 window < shift - s : yabai -m window --resize bottom:0:-20
 window < shift - w : yabai -m window --resize top:0:20
 window < shift - d : yabai -m window --resize right:-20:0
+
 window < f : yabai -m window --toggle float;\
              yabai -m window --grid 10:10:1:1:8:8;\
-	           yabai -m window --layer normal;\
              skhd -k "escape"
-window < shift - f: yabai -m window --toggle sticky; skhd -k "escape"
 
 window < 0x12 : yabai -m window --space 1; skhd -k "escape"
 window < 0x13 : yabai -m window --space 2; skhd -k "escape"
@@ -75,6 +110,16 @@ window < 0x15 : yabai -m window --space 4; skhd -k "escape"
 window < 0x17 : yabai -m window --space 5; skhd -k "escape"
 window < p : yabai -m window --space prev; skhd -k "escape"
 window < n : yabai -m window --space next; skhd -k "escape"
+
+# :: warp
+#
+# window < w ; warp
+# warp < escape ; default
+#
+# warp < j : yabai -m window --warp south; skhd -k "escape"
+# warp < k : yabai -m window --warp north; skhd -k "escape"
+# warp < h : yabai -m window --warp west; skhd -k "escape"
+# warp < l : yabai -m window --warp east; skhd -k "escape"
 
 desktop < escape ; default
 

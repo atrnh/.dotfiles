@@ -35,4 +35,4 @@ detect_extensions = ['pl', 'pod']
 symbol = ' '
 
 [nodejs]
-symbol = ' '
+symbol = ' '

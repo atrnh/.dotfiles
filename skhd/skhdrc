@@ -1,5 +1,6 @@
-:: prefix : sleep 0.5; skhd -k "0x9A"
-
+# Default mode
+# Resets sketchybar colors to default
+# TODO: move this to separate script
 :: default : \
   sketchybar --bar color=0xff1d1d2d; \
   sketchybar --set /./ \
@@ -12,8 +13,25 @@
   sketchybar --set /apple/ \
     icon.color=0xffa6e3a1;
 
-# dark purple
-:: window : \
+# go back to default mode after 1 second
+:: prefix @ : sleep 1; skhd -k "0x9A"
+
+# sketchybar --set /./ label.color=0xffaaa6e7; \
+# sketchybar --set /space/ \
+#   label.background.color=0xff65469f \
+#   icon.highlight_color=0xffaaa6e7; \
+# sketchybar --set /volume/ \
+#   icon.color=0xffaaa6e7; \
+# sketchybar --set /apple/ \
+#   icon.color=0xffaaa6e7; \
+# sleep 0.7; skhd -k "0x9A"
+
+# prefix: ctrl - ; (semicolon)
+default < lctrl - 0x29 ; prefix
+
+# sets bar color to dark purple (catppuccin-mocha theme)
+# TODO: move this to separate script
+:: window @ : \
   sketchybar --bar color=0xff65469f; \
   sketchybar --set /./ label.color=0xffaaa6e7; \
   sketchybar --set /space/ \
@@ -22,73 +40,70 @@
   sketchybar --set /volume/ \
     icon.color=0xffaaa6e7; \
   sketchybar --set /apple/ \
-    icon.color=0xffaaa6e7;
-            
+    icon.color=0xffaaa6e7
 
-# dark green
-:: desktop : sketchybar --bar color=0xff476f50
+# sets bar color to dark green (catppuccin-mocha theme)
+:: desktop @ : \
+  sketchybar --bar color=0xff476f50; \
+  sketchybar --set /./ label.color=0xffaaa6e7; \
+  sketchybar --set /space/ \
+    label.background.color=0xff65469f \
+    icon.highlight_color=0xffaaa6e7; \
+  sketchybar --set /volume/ \
+    icon.color=0xffaaa6e7; \
+  sketchybar --set /apple/ \
+    icon.color=0xffaaa6e7
 
+####### MODE SWITCHING
+## All modes (except for prefix and default ofc) should be accessible from one of these commands.
 
-default < lctrl - 0x29 ; prefix
+# 0x9A isn't an actual keycode but we'll use it to trigger switching back to default mode
+prefix < w ; window
+prefix < d ; desktop
 
-# set up time out
 prefix < 0x9A ; default
+window < 0x9A ; default
+desktop < 0x9A ; default
 
-default < lctrl + alt + shift + cmd - r : yabai -m space --rotate 90
-default < lctrl + alt + shift + cmd - b : yabai -m space --layout bsp
-default < lctrl + alt + shift + cmd - f : yabai -m space --layout float
-default < lctrl + alt + shift + cmd - 5 : skhd -k "shift + cmd - 5"
-default < lctrl + alt + shift + cmd - 2 : skhd -k "shift + cmd - 2"
-default < lctrl + alt + shift + cmd - a : skhd -k "cmd - a"
-default < lctrl + alt + shift + cmd - c : skhd -k "cmd - c"
-default < lctrl + alt + shift + cmd - v : skhd -k "cmd - v"
-default < lctrl + alt + shift + cmd - return : skhd -k "shift - return"
-default < lctrl + alt + shift + cmd - delete : skhd -k "alt - delete"
-default < lctrl + alt + shift + cmd - q : skhd -k "lctrl + alt + shift - q"
-
-default < lctrl + alt + shift + cmd - h : yabai -m window --focus west
-default < lctrl + alt + shift + cmd - j : yabai -m window --focus south
-default < lctrl + alt + shift + cmd - k : yabai -m window --focus north
-default < lctrl + alt + shift + cmd - l : yabai -m window --focus east
-default < lctrl + alt + shift + cmd - f : yabai -m window --toggle float;\
-                                          yabai -m window --grid 10:10:1:1:8:8
-default < lctrl + alt + shift + cmd - r : yabai -m space --rotate 90
-default < lctrl + alt + shift + cmd - up : yabai -m window --swap north;
-default < lctrl + alt + shift + cmd - left : yabai -m window --swap west;
-default < lctrl + alt + shift + cmd - down : yabai -m window --swap south;
-default < lctrl + alt + shift + cmd - right : yabai -m window --swap east;
-
+# use escape to MANUALLY go back to default mode
+# we also use 0x9A to trigger default mode (when in prefix mode) but that should only be used
+# to emulate "one-shot" behavior, where you go back to default layer after executing a command (see above)
 prefix < escape ; default
+window < escape ; default
+desktop < escape ; default
+# IMPORTANT: remember to put additional modes here
 
-prefix < h : yabai -m window --focus west; skhd -k "escape"
-prefix < j : yabai -m window --focus south; skhd -k "escape"
-prefix < k : yabai -m window --focus north; skhd -k "escape"
-prefix < l : yabai -m window --focus east; skhd -k "escape"
+####### PREFIX MODE
+## These (should?) all be one-shot commands that switch back to default mode after executing.
+
+# focus on a window
+prefix < h : skhd -k "0x9A"; yabai -m window --focus west
+prefix < j : skhd -k "0x9A"; yabai -m window --focus south
+prefix < k : skhd -k "0x9A"; yabai -m window --focus north
+prefix < l : skhd -k "0x9A"; yabai -m window --focus east
 
 # overkill??
 # `[` key to go previous, `]` to go next
 # prefix < 0x21 : yabai -m window --focus prev; skhd -k "escape"
 # prefix < 0x1E : yabai -m window --focus next; skhd -k "escape"
 
-# open quick terminal (this shortcut is configured in ghostty conf)
-prefix < t : skhd -k "cmd - 0x32"; skhd -k "escape"
+# Global app shortcuts:
+# open quick terminal (Ghostty)
+prefix < t : skhd -k "0x9A"; skhd -k "cmd - 0x32"
+# quick task entry (Godspeed)
+prefix < n : skhd -k "0x9A"; skhd -k "ctrl + alt + cmd - t"
 
-prefix < w ; window
-prefix < d ; desktop
+####### WINDOW MODE
+## These (should) all be one-shot commands that switch back to default mode after executing.
 
-window < escape ; default
+# TODO: Should i organize into persistent layers vs. one-time layers (like in qmk firmware)?
+# Like maybe I don't want to switch back to default mode after swapping windows?
 
-window < j : yabai -m window --swap south; skhd -k "escape"
-window < k : yabai -m window --swap north; skhd -k "escape"
-window < h : yabai -m window --swap west; skhd -k "escape"
-window < l : yabai -m window --swap east; skhd -k "escape"
-
-window < p : yabai -m window --toggle zoom-parent; skhd -k "escape"
-window < shift - p : yabai -m window --toggle zoom-fullscreen; skhd -k "escape"
-
-# `.` to toggle splitting horizontally/vertically
-window < 0x2F : yabai -m window --toggle split; skhd -k "escape"
-
+# move current window to a different space (and swap)
+window < j : yabai -m window --swap south
+window < k : yabai -m window --swap north
+window < h : yabai -m window --swap west
+window < l : yabai -m window --swap east
 
 window < a : yabai -m window --resize left:-20:0
 window < s : yabai -m window --resize bottom:0:20
@@ -99,17 +114,38 @@ window < shift - s : yabai -m window --resize bottom:0:-20
 window < shift - w : yabai -m window --resize top:0:20
 window < shift - d : yabai -m window --resize right:-20:0
 
-window < f : yabai -m window --toggle float;\
-             yabai -m window --grid 10:10:1:1:8:8;\
-             skhd -k "escape"
+## `--toggle` implies this is a one-shot command so switch back to default mode after executing
+# make windows biggger
+window < p : skhd -k "0x9A"; \
+  yabai -m window --toggle zoom-parent
+window < shift - p : skhd -k "0x9A"; \
+  yabai -m window --toggle zoom-fullscreen
 
-window < 0x12 : yabai -m window --space 1; skhd -k "escape"
-window < 0x13 : yabai -m window --space 2; skhd -k "escape"
-window < 0x14 : yabai -m window --space 3; skhd -k "escape"
-window < 0x15 : yabai -m window --space 4; skhd -k "escape"
-window < 0x17 : yabai -m window --space 5; skhd -k "escape"
-window < p : yabai -m window --space prev; skhd -k "escape"
-window < n : yabai -m window --space next; skhd -k "escape"
+# `.` to toggle splitting horizontally/vertically
+window < 0x2F : skhd -k "0x9A"; \
+  yabai -m window --toggle split
+
+# toggle floating mode
+window < f : skhd -k "0x9A"; \
+  yabai -m window --toggle float; \
+  yabai -m window --grid 10:10:1:1:8:8
+
+# figure out what these are again??
+# window < 0x12 : yabai -m window --space 1; skhd -k "escape"
+# window < 0x13 : yabai -m window --space 2; skhd -k "escape"
+# window < 0x14 : yabai -m window --space 3; skhd -k "escape"
+# window < 0x15 : yabai -m window --space 4; skhd -k "escape"
+# window < 0x17 : yabai -m window --space 5; skhd -k "escape"
+
+# move window to space and focus
+# window < left : skhd -k "0x9A"; yabai -m window --space prev
+# window < right : skhd -k "0x9A"; yabai -m window --space next
+
+####### DESKTOP MODE
+## Put anything `yabai -m space` related here
+desktop < r : yabai -m space --rotate 90
+desktop < b : yabai -m space --layout bsp
+desktop < f : yabai -m space --layout float
 
 # :: warp
 #
@@ -121,9 +157,30 @@ window < n : yabai -m window --space next; skhd -k "escape"
 # warp < h : yabai -m window --warp west; skhd -k "escape"
 # warp < l : yabai -m window --warp east; skhd -k "escape"
 
-desktop < escape ; default
+# These are only relevant when using a custom keyboard where I've mapped these shortcuts
+# to more convenient keys. TODO: should consider putting this in a separate file
+default < hyper - r : yabai -m space --rotate 90
+default < hyper - b : yabai -m space --layout bsp
+default < hyper - f : yabai -m space --layout float
+default < hyper - h : yabai -m window --focus west
+default < hyper - j : yabai -m window --focus south
+default < hyper - k : yabai -m window --focus north
+default < hyper - l : yabai -m window --focus east
+default < hyper - f : yabai -m window --toggle float;\
+                                          yabai -m window --grid 10:10:1:1:8:8
+default < hyper - r : yabai -m space --rotate 90
+default < hyper - up : yabai -m window --swap north;
+default < hyper - left : yabai -m window --swap west;
+default < hyper - down : yabai -m window --swap south;
+default < hyper - right : yabai -m window --swap east;
 
-desktop < r : yabai -m space --rotate 90
-desktop < b : yabai -m space --layout bsp; skhd -k "fn - escape"
-desktop < f : yabai -m space --layout float; skhd -k "fn - escape"
-
+# why do these exist and wtf do they do???
+# oh its my stupid custom kb firmware stuff
+default < hyper - 5 : skhd -k "shift + cmd - 5"
+default < hyper - 2 : skhd -k "shift + cmd - 2"
+default < hyper - a : skhd -k "cmd - a"
+default < hyper - c : skhd -k "cmd - c"
+default < hyper - v : skhd -k "cmd - v"
+default < hyper - return : skhd -k "shift - return"
+default < hyper - delete : skhd -k "alt - delete"
+default < hyper - q : skhd -k "lctrl + alt + shift - q"

@@ -128,7 +128,7 @@ case $@ in
 "Pine")
 	icon_result=":pine:"
 	;;
-"Microsoft Excel")
+"Microsoft Excel" | "Smartsheet")
 	icon_result=":microsoft_excel:"
 	;;
 "Microsoft PowerPoint")
@@ -341,8 +341,8 @@ case $@ in
 "Tower")
 	icon_result=":tower:"
 	;;
-"Calibre")
-	icon_result=":book:"
+"Calibre" | "E-book Viewer")
+	icon_result=":calibre:"
 	;;
 "Finder" | "访达")
 	icon_result=":finder:"
@@ -379,6 +379,12 @@ case $@ in
 	;;
 "Sequel Ace")
 	icon_result=":sequel_ace:"
+	;;
+"Cursor")
+	icon_result=":cursor:"
+	;;
+"Ghostty")
+	icon_result=":ghostty:"
 	;;
 *)
 	icon_result=":default:"

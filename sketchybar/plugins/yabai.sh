@@ -40,6 +40,8 @@ window_state() {
 
 windows_on_spaces () {
   CURRENT_SPACES="$(yabai -m query --displays | jq -r '.[].spaces | @sh')"
+  # only unique apps that aren't the floating Ghostty window
+  JQ_UNIQUE_APPS_WITHOUT_FLOATING_GHOSTTY='unique_by(."app") | map(select(."subrole" == "AXFloatingWindow" and ."app" == "Ghostty" | not)) | .[].app'
 
   args=()
   while read -r line
@@ -47,7 +49,7 @@ windows_on_spaces () {
     for space in $line
     do
       icon_strip=" "
-      apps=$(yabai -m query --windows --space $space | jq -r ".[].app")
+      apps=$(yabai -m query --windows --space $space | jq -r "$JQ_UNIQUE_APPS_WITHOUT_FLOATING_GHOSTTY")
       if [ "$apps" != "" ]; then
         while IFS= read -r app; do
           icon_strip+=" $($HOME/.config/sketchybar/plugins/icon_map.sh "$app")"

@@ -23,6 +23,7 @@ do
     icon.highlight_color=$MOCHA_maroon
     label.font="sketchybar-app-font:Regular:13.0"
     label.color=$MOCHA_rosewater
+    label.highlight_color=$MOCHA_maroon
     label.background.height=24
     label.background.drawing=on
     label.background.color=$BACKGROUND_1

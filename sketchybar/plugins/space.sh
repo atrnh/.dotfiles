@@ -2,11 +2,12 @@
 
 update() {
   WIDTH="dynamic"
-  if [ "$SELECTED" = "true" ]; then
-    WIDTH="0"
-  fi
+  # if [ "$SELECTED" = "true" ]; then
+  #   WIDTH="0"
+  # fi
 
-  sketchybar --animate tanh 15 --set $NAME icon.highlight=$SELECTED label.width=$WIDTH
+  # sketchybar --animate tanh 15 --set $NAME icon.highlight=$SELECTED label.width=$WIDTH
+  sketchybar --animate tanh 15 --set $NAME icon.highlight=$SELECTED label.highlight=$SELECTED
 }
 
 mouse_clicked() {

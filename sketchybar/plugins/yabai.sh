@@ -1,6 +1,7 @@
 #!/bin/bash
 
 window_state() {
+  source "$HOME/.config/sketchybar/catppuccin.sh"
   source "$HOME/.config/sketchybar/colors.sh"
   source "$HOME/.config/sketchybar/icons.sh"
 
@@ -14,22 +15,22 @@ window_state() {
     # yabai -m config active_window_border_color $RED > /dev/null 2>&1 &
 
   else
-    args+=(--set $NAME label.drawing=off)
+    args+=(--set $NAME label.drawing=off icon.color=$MAGENTA)
     case "$(echo "$WINDOW" | jq '.["is-floating"]')" in
       "false")
         if [ "$(echo "$WINDOW" | jq '.["has-fullscreen-zoom"]')" = "true" ]; then
-          args+=(--set $NAME icon=$YABAI_FULLSCREEN_ZOOM icon.color=$GREEN)
+          args+=(--set $NAME icon=$YABAI_FULLSCREEN_ZOOM icon.color=$MOCHA_green)
           # yabai -m config active_window_border_color $GREEN > /dev/null 2>&1 &
         elif [ "$(echo "$WINDOW" | jq '.["has-parent-zoom"]')" = "true" ]; then
-          args+=(--set $NAME icon=$YABAI_PARENT_ZOOM icon.color=$BLUE)
+          args+=(--set $NAME icon=$YABAI_PARENT_ZOOM icon.color=$MOCHA_blue)
           # yabai -m config active_window_border_color $BLUE > /dev/null 2>&1 &
         else
-          args+=(--set $NAME icon=$YABAI_GRID icon.color=$MAGENTA)
+          args+=(--set $NAME icon=$YABAI_GRID icon.color=$MOCHA_mauve)
           # yabai -m config active_window_border_color $WHITE > /dev/null 2>&1 &
         fi
         ;;
       "true")
-        args+=(--set $NAME icon=$YABAI_FLOAT icon.color=$RED)
+        args+=(--set $NAME icon=$YABAI_FLOAT icon.color=$MOCHA_sky)
         # yabai -m config active_window_border_color $MAGENTA > /dev/null 2>&1 &
         ;;
     esac
@@ -63,7 +64,7 @@ windows_on_spaces () {
 }
 
 mouse_clicked() {
-  yabai -m window --toggle float
+  # yabai -m window --toggle float
   window_state
 }
 

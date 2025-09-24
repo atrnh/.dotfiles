@@ -44,7 +44,7 @@ spaces=(
 )
 
 separator=(
-  icon=􀆊
+  icon=􀅼
   icon.font="$FONT:Heavy:10.0"
   padding_left=8
   padding_right=0

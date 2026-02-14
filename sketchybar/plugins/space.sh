@@ -1,9 +1,11 @@
 #!/bin/bash
 
+source "$HOME/.config/sketchybar/plugins/icon_map.sh"
+
 windows_on_spaces () {
-  CURRENT_SPACES="$(yabai -m query --displays | jq -r '.[].spaces | @sh')"
+  current_spaces="$(yabai -m query --displays | jq -r '.[].spaces | @sh')"
   # only unique apps that aren't the floating Ghostty window
-  JQ_UNIQUE_APPS_WITHOUT_FLOATING_GHOSTTY='unique_by(."app") | map(select(."subrole" == "AXFloatingWindow" and ."app" == "Ghostty" | not)) | .[].app'
+  jq_unique_apps_without_floating_ghostty='unique_by(."app") | map(select(."subrole" == "AXFloatingWindow" and ."app" == "Ghostty" | not)) | map(select(."role" == "" and ."subrole" == "" | not)) | .[].app'
 
   args=()
   while read -r line
@@ -11,26 +13,22 @@ windows_on_spaces () {
     for space in $line
     do
       icon_strip=" "
-      apps=$(yabai -m query --windows --space $space | jq -r "$JQ_UNIQUE_APPS_WITHOUT_FLOATING_GHOSTTY")
+      apps=$(yabai -m query --windows --space $space | jq -r "$jq_unique_apps_without_floating_ghostty")
       if [ "$apps" != "" ]; then
         while IFS= read -r app; do
-          icon_strip+=" $($HOME/.config/sketchybar/plugins/icon_map.sh "$app")"
+          __icon_map "$app"
+          icon_strip+=" $icon_result"
         done <<< "$apps"
       fi
       args+=(--set space.$space label="$icon_strip" label.drawing=on)
     done
-  done <<< "$CURRENT_SPACES"
+  done <<< "$current_spaces"
 
   sketchybar -m "${args[@]}"
 }
 
 update() {
   WIDTH="dynamic"
-  # if [ "$SELECTED" = "true" ]; then
-  #   WIDTH="0"
-  # fi
-
-  # sketchybar --animate tanh 15 --set $NAME icon.highlight=$SELECTED label.width=$WIDTH
   sketchybar --animate tanh 5 --set $NAME icon.highlight=$SELECTED label.highlight=$SELECTED
   windows_on_spaces
 }

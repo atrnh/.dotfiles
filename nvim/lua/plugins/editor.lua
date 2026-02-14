@@ -85,5 +85,15 @@ return {
       end,
     },
   },
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters = {
+        markdown = function(ctx)
+          return not string.find(ctx.filename, "Obsidian", 1, true)
+        end,
+      }
+    }
+  }
 }
 

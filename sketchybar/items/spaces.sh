@@ -7,9 +7,8 @@ SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15")
 
 sid=0
 spaces=()
-for i in "${!SPACE_ICONS[@]}"
-do
-  sid=$(($i+1))
+for i in "${!SPACE_ICONS[@]}"; do
+  sid=$(($i + 1))
 
   space=(
     associated_space=$sid
@@ -32,9 +31,9 @@ do
     script="$PLUGIN_DIR/space.sh"
   )
 
-  sketchybar --add space space.$sid left    \
-             --set space.$sid "${space[@]}" \
-             --subscribe space.$sid mouse.clicked
+  sketchybar --add space space.$sid left \
+    --set space.$sid "${space[@]}" \
+    --subscribe space.$sid mouse.clicked
 done
 
 spaces=(
@@ -43,19 +42,19 @@ spaces=(
   background.drawing=on
 )
 
-separator=(
-  icon=􀅼
-  icon.font="$FONT:Heavy:10.0"
-  padding_left=8
-  padding_right=0
-  label.drawing=off
-  associated_display=active
-  click_script='yabai -m space --create && sketchybar --trigger space_change'
-  icon.color=$WHITE
-)
+# separator=(
+#   icon=􀅼
+#   icon.font="$FONT:Heavy:10.0"
+#   padding_left=8
+#   padding_right=0
+#   label.drawing=off
+#   associated_display=active
+#   click_script='yabai -m space --create && sketchybar --trigger space_change'
+#   icon.color=$WHITE
+# )
 
 sketchybar --add bracket spaces '/space\..*/' \
-           --set spaces "${spaces[@]}"        \
-                                              \
-           --add item separator left          \
-           --set separator "${separator[@]}"
+  --set spaces "${spaces[@]}" \
+  --add event window_created \
+  --add event window_destroyed \
+  --subscribe spaces space_windows_change space_change window_created window_destroyed

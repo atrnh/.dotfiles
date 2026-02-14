@@ -29,16 +29,6 @@
                         "vendor_id": 30727
                     },
                     "manipulate_caps_lock_led": false
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": true,
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 50895,
-                        "vendor_id": 12951
-                    },
-                    "ignore_vendor_events": true,
-                    "manipulate_caps_lock_led": false
                 }
             ],
             "name": "Default profile",

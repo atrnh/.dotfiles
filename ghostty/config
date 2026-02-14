@@ -23,4 +23,4 @@ gtk-single-instance = true
 
 quick-terminal-size = 900px
 
-shell-integration-features = ssh-env,ssh-terminfo,title
+shell-integration-features = ssh-terminfo,ssh-env,title

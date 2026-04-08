@@ -14,7 +14,7 @@
     icon.color=0xffa6e3a1;
 
 # go back to default mode after 1 second
-:: prefix @ : sleep 1; skhd -k "0x9A"
+:: prefix @
 
 # sketchybar --set /./ label.color=0xffaaa6e7; \
 # sketchybar --set /space/ \
@@ -47,7 +47,7 @@ default < lctrl - 0x29 ; prefix
   sketchybar --bar color=0xff476f50; \
   sketchybar --set /./ label.color=0xffaaa6e7; \
   sketchybar --set /space/ \
-    label.background.color=0xff65469f \
+    label.background.color=0xff476f50 \
     icon.highlight_color=0xffaaa6e7; \
   sketchybar --set /volume/ \
     icon.color=0xffaaa6e7; \
@@ -161,14 +161,12 @@ desktop < f : yabai -m space --layout float
 # to more convenient keys. TODO: should consider putting this in a separate file
 default < hyper - r : yabai -m space --rotate 90
 default < hyper - b : yabai -m space --layout bsp
-default < hyper - f : yabai -m space --layout float
 default < hyper - h : yabai -m window --focus west
 default < hyper - j : yabai -m window --focus south
 default < hyper - k : yabai -m window --focus north
 default < hyper - l : yabai -m window --focus east
 default < hyper - f : yabai -m window --toggle float;\
                                           yabai -m window --grid 10:10:1:1:8:8
-default < hyper - r : yabai -m space --rotate 90
 default < hyper - up : yabai -m window --swap north;
 default < hyper - left : yabai -m window --swap west;
 default < hyper - down : yabai -m window --swap south;

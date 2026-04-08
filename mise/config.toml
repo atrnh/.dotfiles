@@ -5,7 +5,6 @@ watchexec = "latest"
 
 [settings]
 experimental = true
-python_compile = true
 trusted_config_paths = [
   "~/work/**",
   "~/personal/**"

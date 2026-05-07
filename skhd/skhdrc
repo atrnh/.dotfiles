@@ -89,9 +89,7 @@ prefix < l : skhd -k "0x9A"; yabai -m window --focus east
 
 # Global app shortcuts:
 # open quick terminal (Ghostty)
-prefix < t : skhd -k "0x9A"; skhd -k "cmd - 0x32"
-# quick task entry (Godspeed)
-prefix < n : skhd -k "0x9A"; skhd -k "ctrl + alt + cmd - t"
+prefix < t : skhd -k "ctrl + alt + cmd - t"; skhd -k "0x9A"
 
 ####### WINDOW MODE
 ## These (should) all be one-shot commands that switch back to default mode after executing.

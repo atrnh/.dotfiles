@@ -2,7 +2,14 @@
 
 using [the Zig implementation](https://github.com/jackielii/skhd.zig).
 
-### interesting stuff
+## roadmap
+
+- [ ] migrate karabiner config
+- [ ] set up qmk style layers
+- [ ] use reuseable command templates for sketchybar updates
+- [ ] add aliases for lowper (hyper w/o shift), hyper, and backtick (`0x32`)
+
+## cheatsheet
 
 ```bash
 # Use custom shell (skips interactive shell overhead)
@@ -29,10 +36,11 @@ using [the Zig implementation](https://github.com/jackielii/skhd.zig).
 
 # Define reusable commands with placeholders (New in skhd.zig!)
 .define yabai_focus : yabai -m window --focus {{1}} || yabai -m display --focus {{1}}
-.define yabai_swap : yabai -m window --swap {{1}} || (yabai -m window --display {{1}} && yabai -m display --focus {{1}})
-.define toggle_app : open -a "{{1}}" || osascript -e 'tell app "{{1}}" to quit'
 .define resize_window : yabai -m window --resize {{1}}:{{2}}:{{3}}
-.define toggle_scratchpad : yabai -m window --toggle {{1}} || open -a "{{2}}"
+
+# Then use the commands like this:
+cmd - h : @yabai_focus("west")
+cmd + ctrl - h : @resize_window("left", "-20", "0")
 
 # Declare a keyboard by VendorID/ProductID (v0.1.0)
 # See "Device-aware remapping" below for full details.

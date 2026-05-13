@@ -4,3 +4,7 @@
 vim.g.python3_host_prog = "/Users/ashley/.cache/nvim/venv/bin/python3"
 vim.g.neovide_cursor_animation_length = 0
 vim.g.neovide_cursor_trail_size = 1.0
+
+if vim.g.vscode then
+  vim.opt.report = 9999
+end

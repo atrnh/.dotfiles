@@ -4,17 +4,19 @@ end
 
 local enabled = {
   "vim-repeat",
-  "vim-sandwich",
   "flash.nvim",
   "nvim-treesitter",
   "nvim-treesitter-textobjects",
   "nvim-ts-context-commentstring",
   "ts-comments.nvim",
-  "vim-table-mode",
   "vim-rst-sections",
   "LazyVim",
   "snacks.nvim",
+  "vim-sandwich"
 }
+
+-- vim-sandwich intentionally uses `echo ''` to clear prompts/highlights. In
+-- vscode-neovim those empty echoes are forwarded to the VS Code messages pane.
 
 local Config = require("lazy.core.config")
 Config.options.checker.enabled = false

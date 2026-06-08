@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 ### START-OF-ICON-MAP
 function __icon_map() {
@@ -967,6 +967,9 @@ function __icon_map() {
         icon_result=":nord_vpn:"
         ;;
    "Notability")
+        icon_result=":notability:"
+        ;;
+   "NotePlan")
         icon_result=":notability:"
         ;;
    "Notes" | "备忘录" | "メモ" | "Notizen" | "Нотатки" | "Заметки")

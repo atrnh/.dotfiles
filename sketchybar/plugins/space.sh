@@ -1,11 +1,10 @@
 #!/bin/bash
 
-source "$HOME/.config/sketchybar/plugins/icon_map.sh"
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins" # Directory where all the plugin scripts are stored
 
 windows_on_spaces () {
   current_spaces="$(yabai -m query --displays | jq -r '.[].spaces | @sh')"
-  # only unique apps that aren't the floating Ghostty window
-  jq_unique_apps_without_floating_ghostty='unique_by(."app") | map(select(."subrole" == "AXFloatingWindow" and ."app" == "Ghostty" | not)) | map(select(."role" == "" and ."subrole" == "" | not)) | .[].app'
+  jq_unique_apps_without_floating_ghostty='map(select(."role" == "AXWindow" and ."subrole" == "AXStandardWindow")) | map(select(."layer" == "above" | not)) | unique_by(."app") | .[].app'
 
   args=()
   while read -r line
@@ -16,8 +15,7 @@ windows_on_spaces () {
       apps=$(yabai -m query --windows --space $space | jq -r "$jq_unique_apps_without_floating_ghostty")
       if [ "$apps" != "" ]; then
         while IFS= read -r app; do
-          __icon_map "$app"
-          icon_strip+=" $icon_result"
+          icon_strip+=" $($PLUGIN_DIR/icon_map.sh "$app")"
         done <<< "$apps"
       fi
       args+=(--set space.$space label="$icon_strip" label.drawing=on)

@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+options=(
+  blacklist="Codex"
+  active_color=0xffca9ee6
+  inactive_color=0xff414559
+  width=6.0
+)
+
+borders "${options[@]}"

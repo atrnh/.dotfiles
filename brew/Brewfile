@@ -1,7 +1,7 @@
 # tap 'homebrew/cask'
-brew 'antigen'
 brew 'bat'
 brew 'fd'
+brew 'fish'
 brew 'fzf'
 brew 'gh'
 brew 'git'
@@ -35,4 +35,3 @@ brew 'wezterm'
 brew 'google-chrome'
 brew 'raycast'
 brew 'slack'
-

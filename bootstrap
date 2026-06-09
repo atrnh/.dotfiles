@@ -1,16 +1,19 @@
-#!/bin/zsh
+#!/usr/bin/env sh
 
-export CONF_DIR=$HOME/.config
+CONF_DIR=${XDG_CONFIG_HOME:-"$HOME/.config"}
+export CONF_DIR
 
 # Create ~/.config directory if it doesn't exist
-mkdir -p $CONF_DIR
-local parent_dir=$(realpath $(dirname "$0"))
+mkdir -p "$CONF_DIR"
+parent_dir=$(cd "$(dirname "$0")" && pwd -P)
+
 for f in "$parent_dir"/*/; do
-  local name=$(basename $f)
-  if [ ! -d $CONF_DIR/$name ]; then
-    ln -s $f $CONF_DIR/$name
+  name=$(basename "$f")
+  if [ ! -e "$CONF_DIR/$name" ]; then
+    ln -s "$f" "$CONF_DIR/$name"
   fi
 done
 
-ln $parent_dir/zsh/.zshenv $HOME/.zshenv 2> /dev/null || :
-ln $parent_dir/.gitconfig $HOME/.gitconfig 2> /dev/null || :
+if [ ! -e "$HOME/.gitconfig" ]; then
+  ln -s "$parent_dir/.gitconfig" "$HOME/.gitconfig"
+fi

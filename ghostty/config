@@ -14,7 +14,7 @@ quick-terminal-position = center
 quick-terminal-animation-duration = 0
 quick-terminal-autohide = true
 
-shell-integration = zsh
+shell-integration = fish
 shell-integration-features = title
 
 macos-icon = holographic

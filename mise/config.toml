@@ -1,14 +1,10 @@
 [tools]
-python = "latest"
 node = "latest"
+python = "latest"
 watchexec = "latest"
 
 [settings]
 experimental = true
-trusted_config_paths = [
-  "~/work/**",
-  "~/personal/**"
-]
+trusted_config_paths = ["~/work/**", "~/personal/**"]
 status = { missing_tools = "if_other_versions_installed", show_env = true, show_tools = false }
 minimum_release_age = "7d"
-

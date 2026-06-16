@@ -1,3 +1,3 @@
 function hackernews
-    clx -n -a
+    clx -n -a 90 $argv
 end

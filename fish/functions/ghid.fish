@@ -1,4 +1,8 @@
-function ghid
+function _gh_issue_list
+    gh issue list --json number,title,updatedAt --template '{{tablerow "NUM" "TITLE" "UPDATED"}}{{range .}}{{tablerow .number .title (timeago .updatedAt)}}{{end}}{{tablerender}}'
+end
+
+function interactive_gh_issue_develop
     if not command -q gh
         echo 'ghid: gh is not installed' >&2
         return 127

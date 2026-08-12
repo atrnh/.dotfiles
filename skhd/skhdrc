@@ -77,10 +77,10 @@ desktop < escape ; default
 ## These (should?) all be one-shot commands that switch back to default mode after executing.
 
 # focus on a window
-prefix < h : skhd -k "0x9A"; yabai -m window --focus west
-prefix < j : skhd -k "0x9A"; yabai -m window --focus south
-prefix < k : skhd -k "0x9A"; yabai -m window --focus north
-prefix < l : skhd -k "0x9A"; yabai -m window --focus east
+prefix < h : yabai -m window --focus west; skhd -k "0x9A"
+prefix < j : yabai -m window --focus south; skhd -k "0x9A"
+prefix < k : yabai -m window --focus north; skhd -k "0x9A"
+prefix < l : yabai -m window --focus east; skhd -k "0x9A"
 
 # overkill??
 # `[` key to go previous, `]` to go next
@@ -114,19 +114,15 @@ window < shift - d : yabai -m window --resize right:-20:0
 
 ## `--toggle` implies this is a one-shot command so switch back to default mode after executing
 # make windows biggger
-window < p : skhd -k "0x9A"; \
-  yabai -m window --toggle zoom-parent
-window < shift - p : skhd -k "0x9A"; \
-  yabai -m window --toggle zoom-fullscreen
+window < p : yabai -m window --toggle zoom-parent; skhd -k "0x9A"
+window < shift - p : yabai -m window --toggle zoom-fullscreen; skhd -k "0x9A"
 
 # `.` to toggle splitting horizontally/vertically
-window < 0x2F : skhd -k "0x9A"; \
-  yabai -m window --toggle split
+window < 0x2F : yabai -m window --toggle split; skhd -k "0x9A"
 
 # toggle floating mode
-window < f : skhd -k "0x9A"; \
-  yabai -m window --toggle float; \
-  yabai -m window --grid 10:10:1:1:8:8
+window < f : yabai -m window --toggle float --grid 10:10:1:1:8:8; \
+  skhd -k "0x9A"
 
 # figure out what these are again??
 # window < 0x12 : yabai -m window --space 1; skhd -k "escape"
@@ -155,20 +151,22 @@ desktop < f : yabai -m space --layout float
 # warp < h : yabai -m window --warp west; skhd -k "escape"
 # warp < l : yabai -m window --warp east; skhd -k "escape"
 
+.alias $lowper cmd + alt + ctrl
+
 # These are only relevant when using a custom keyboard where I've mapped these shortcuts
 # to more convenient keys. TODO: should consider putting this in a separate file
-default < hyper - r : yabai -m space --rotate 90
-default < hyper - b : yabai -m space --layout bsp
-default < hyper - h : yabai -m window --focus west
-default < hyper - j : yabai -m window --focus south
-default < hyper - k : yabai -m window --focus north
-default < hyper - l : yabai -m window --focus east
-default < hyper - f : yabai -m window --toggle float;\
-                                          yabai -m window --grid 10:10:1:1:8:8
-default < hyper - up : yabai -m window --swap north;
-default < hyper - left : yabai -m window --swap west;
-default < hyper - down : yabai -m window --swap south;
-default < hyper - right : yabai -m window --swap east;
+default < $lowper - r : yabai -m space --rotate 90
+default < $lowper - b : yabai -m space --layout bsp
+default < $lowper - h : yabai -m window --focus west
+default < $lowper - j : yabai -m window --focus south
+default < $lowper - k : yabai -m window --focus north
+default < $lowper - l : yabai -m window --focus east
+default < $lowper - f : yabai -m window --toggle float --grid 10:10:1:1:8:8
+default < $lowper - p : yabai -m window --toggle zoom-parent
+default < $lowper - up : yabai -m window --swap north
+default < $lowper - left : yabai -m window --swap west
+default < $lowper - down : yabai -m window --swap south
+default < $lowper - right : yabai -m window --swap east
 
 # why do these exist and wtf do they do???
 # oh its my stupid custom kb firmware stuff

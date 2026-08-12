@@ -14,7 +14,7 @@ function fish_prompt
     printf ' %s ' $USER
 
     set_color --bold blue
-    printf '%s' (prompt_pwd)
+    printf '%s' (prompt_pwd --full-length-dirs=2 --dir-length=3)
 
     set -l vcs (fish_git_prompt " • %s")
     if test -n "$vcs"

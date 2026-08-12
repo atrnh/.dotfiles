@@ -6,12 +6,6 @@ if command -q colordiff
     abbr -a diff colordiff
 end
 
-if command -q eza
-    abbr -a ls eza -G --color always --icons -a -s type
-    abbr -a l eza -G --color always --icons -a -s type
-    abbr -a ll eza --git -l --no-user --color always --icons -a -s type
-end
-
 if command -q http
     abbr -a httpv http -v
 end
@@ -48,3 +42,6 @@ abbr -a gc git commit
 abbr -a gcam git commit -am
 abbr -a ga git add
 abbr -a gm git merge
+
+# Notion
+abbr -a inbox get_ntn_inbox

@@ -9,5 +9,4 @@ else
 end
 
 set -gx DOTFILES_REPO "$HOME/.dotfiles"
-set -gx BAT_THEME Catppuccin-mocha
 set -gx POETRY_CONFIG_DIR "$HOME/.config/pypoetry"

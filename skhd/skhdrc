@@ -1,17 +1,16 @@
 # Shared skhd configuration.
 
+.shell "/bin/dash"
+
 # Default mode: reset SketchyBar colors.
 :: default : \
-  sketchybar --bar color=0xff1d1d2d; \
-  sketchybar --set /./ \
-    label.color=0xfff5e0dc; \
-  sketchybar --set /space/ \
+  sketchybar --bar color=0xff1d1d2d \
+  --set /./ label.color=0xfff5e0dc \
+  --set /space/ \
     label.background.color=0xff313244 \
-    icon.highlight_color=0xffeba0ac; \
-  sketchybar --set /volume/ \
-    icon.color=0xfff38ba8; \
-  sketchybar --set /apple/ \
-    icon.color=0xffa6e3a1;
+    icon.highlight_color=0xffeba0ac \
+  --set /volume/ icon.color=0xfff38ba8 \
+  --set /apple/ icon.color=0xffa6e3a1
 
 # Prefix mode: left control + semicolon.
 :: prefix @
@@ -19,27 +18,23 @@ default < lctrl - 0x29 ; prefix
 
 # Window mode: dark purple SketchyBar.
 :: window @ : \
-  sketchybar --bar color=0xff65469f; \
-  sketchybar --set /./ label.color=0xffaaa6e7; \
-  sketchybar --set /space/ \
+  sketchybar --bar color=0xff65469f \
+  --set /./ label.color=0xffaaa6e7 \
+  --set /space/ \
     label.background.color=0xff65469f \
-    icon.highlight_color=0xffaaa6e7; \
-  sketchybar --set /volume/ \
-    icon.color=0xffaaa6e7; \
-  sketchybar --set /apple/ \
-    icon.color=0xffaaa6e7
+    icon.highlight_color=0xffaaa6e7 \
+  --set /volume/ icon.color=0xffaaa6e7 \
+  --set /apple/ icon.color=0xffaaa6e7
 
 # Desktop mode: dark green SketchyBar.
 :: desktop @ : \
-  sketchybar --bar color=0xff476f50; \
-  sketchybar --set /./ label.color=0xffaaa6e7; \
-  sketchybar --set /space/ \
+  sketchybar --bar color=0xff476f50 \
+  --set /./ label.color=0xffaaa6e7 \
+  --set /space/ \
     label.background.color=0xff476f50 \
-    icon.highlight_color=0xffaaa6e7; \
-  sketchybar --set /volume/ \
-    icon.color=0xffaaa6e7; \
-  sketchybar --set /apple/ \
-    icon.color=0xffaaa6e7
+    icon.highlight_color=0xffaaa6e7 \
+  --set /volume/ icon.color=0xffaaa6e7 \
+  --set /apple/ icon.color=0xffaaa6e7
 
 ####### MODE SWITCHING
 

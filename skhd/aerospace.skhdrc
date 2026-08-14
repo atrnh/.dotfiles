@@ -1,0 +1,57 @@
+# AeroSpace-specific bindings loaded by skhdrc.
+
+####### PREFIX MODE
+
+prefix < h : aerospace focus left; skhd -k "0x9A"
+prefix < j : aerospace focus down; skhd -k "0x9A"
+prefix < k : aerospace focus up; skhd -k "0x9A"
+prefix < l : aerospace focus right; skhd -k "0x9A"
+
+####### WINDOW MODE
+
+window < h : aerospace swap left
+window < j : aerospace swap down
+window < k : aerospace swap up
+window < l : aerospace swap right
+
+# AeroSpace resizes dimensions rather than individual window edges.
+window < a : aerospace resize width +20
+window < s : aerospace resize height +20
+window < w : aerospace resize height +20
+window < d : aerospace resize width +20
+window < shift - a : aerospace resize width -20
+window < shift - s : aerospace resize height -20
+window < shift - w : aerospace resize height -20
+window < shift - d : aerospace resize width -20
+
+# AeroSpace has one tiling fullscreen level; removing outer gaps is the closest
+# equivalent to yabai's full-space zoom.
+window < p : aerospace fullscreen; skhd -k "0x9A"
+window < shift - p : aerospace fullscreen --no-outer-gaps; skhd -k "0x9A"
+
+window < 0x2F : aerospace layout tiles horizontal vertical; skhd -k "0x9A"
+
+# AeroSpace preserves the window's last floating size and position.
+window < f : aerospace layout floating tiling; skhd -k "0x9A"
+
+####### DESKTOP MODE
+
+# These are the closest non-destructive equivalents to yabai's space commands.
+desktop < r : aerospace layout --root horizontal vertical
+desktop < b : aerospace layout tiling; aerospace layout --root tiles
+desktop < f : aerospace layout floating
+
+####### CUSTOM KEYBOARD
+
+default < $lowper - r : aerospace layout --root horizontal vertical
+default < $lowper - b : aerospace layout tiling; aerospace layout --root tiles
+default < $lowper - h : aerospace focus left
+default < $lowper - j : aerospace focus down
+default < $lowper - k : aerospace focus up
+default < $lowper - l : aerospace focus right
+default < $lowper - f : aerospace layout floating tiling
+default < $lowper - p : aerospace fullscreen
+default < $lowper - up : aerospace swap up
+default < $lowper - left : aerospace swap left
+default < $lowper - down : aerospace swap down
+default < $lowper - right : aerospace swap right

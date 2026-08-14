@@ -1,0 +1,39 @@
+# AeroSpace replacement for ~/.config/yabai/yabairc.
+config-version = 2
+
+start-at-login = true
+auto-reload-config = true
+
+after-startup-command = [
+    'exec-and-forget borders active_color=0xffca9ee6 inactive_color=0xff414559 width=6.0 blacklist="Codex,petdex-desktop"',
+]
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+# Keep the pointer stationary when keyboard focus changes.
+on-focus-changed = []
+on-focused-monitor-changed = []
+focus-follows-mouse.enabled = false
+
+# Match yabai's 8px window gap, edge padding, and 40px SketchyBar reservation.
+gaps.inner.horizontal = 8
+gaps.inner.vertical = 8
+gaps.outer.left = 8
+gaps.outer.bottom = 10
+gaps.outer.top = 50
+gaps.outer.right = 8
+
+# AeroSpace already floats windows it recognizes as dialogs, including Codex dialogs.
+on-window-detected = [
+    { if = '''test %{app-name} ~= "^App Store|^System Settings$|^Install.?|Dashlane|Zoom|^Adobe.*|^Presentify.*|petdex-desktop"''', run = 'layout floating', check-further-callbacks = true },
+    { run = ['balance-sizes --workspace %{workspace}', 'exec-and-forget sketchybar --trigger window_created'] },
+]
+
+# AeroSpace does not expose a matching window-destroyed callback.
+
+# Window-manager hotkeys are selected from ~/.config/skhd/skhdrc.
+[mode.main.binding]

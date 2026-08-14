@@ -1,0 +1,52 @@
+# yabai-specific bindings loaded by skhdrc.
+
+####### PREFIX MODE
+
+prefix < h : yabai -m window --focus west; skhd -k "0x9A"
+prefix < j : yabai -m window --focus south; skhd -k "0x9A"
+prefix < k : yabai -m window --focus north; skhd -k "0x9A"
+prefix < l : yabai -m window --focus east; skhd -k "0x9A"
+
+####### WINDOW MODE
+
+window < h : yabai -m window --swap west
+window < j : yabai -m window --swap south
+window < k : yabai -m window --swap north
+window < l : yabai -m window --swap east
+
+window < a : yabai -m window --resize left:-20:0
+window < s : yabai -m window --resize bottom:0:20
+window < w : yabai -m window --resize top:0:-20
+window < d : yabai -m window --resize right:20:0
+window < shift - a : yabai -m window --resize left:20:0
+window < shift - s : yabai -m window --resize bottom:0:-20
+window < shift - w : yabai -m window --resize top:0:20
+window < shift - d : yabai -m window --resize right:-20:0
+
+window < p : yabai -m window --toggle zoom-parent; skhd -k "0x9A"
+window < shift - p : yabai -m window --toggle zoom-fullscreen; skhd -k "0x9A"
+
+window < 0x2F : yabai -m window --toggle split; skhd -k "0x9A"
+window < f : yabai -m window --toggle float --grid 10:10:1:1:8:8; \
+  skhd -k "0x9A"
+
+####### DESKTOP MODE
+
+desktop < r : yabai -m space --rotate 90
+desktop < b : yabai -m space --layout bsp
+desktop < f : yabai -m space --layout float
+
+####### CUSTOM KEYBOARD
+
+default < $lowper - r : yabai -m space --rotate 90
+default < $lowper - b : yabai -m space --layout bsp
+default < $lowper - h : yabai -m window --focus west
+default < $lowper - j : yabai -m window --focus south
+default < $lowper - k : yabai -m window --focus north
+default < $lowper - l : yabai -m window --focus east
+default < $lowper - f : yabai -m window --toggle float --grid 10:10:1:1:8:8
+default < $lowper - p : yabai -m window --toggle zoom-parent
+default < $lowper - up : yabai -m window --swap north
+default < $lowper - left : yabai -m window --swap west
+default < $lowper - down : yabai -m window --swap south
+default < $lowper - right : yabai -m window --swap east

@@ -11,10 +11,20 @@ prefix < j : aerospace focus down; skhd -k "0x9A"
 prefix < k : aerospace focus up; skhd -k "0x9A"
 prefix < l : aerospace focus right; skhd -k "0x9A"
 
+prefix < 1 : aerospace workspace 1; skhd -k "0x9A"
+prefix < 2 : aerospace workspace 2; skhd -k "0x9A"
+prefix < 3 : aerospace workspace 3; skhd -k "0x9A"
+prefix < 4 : aerospace workspace 4; skhd -k "0x9A"
+prefix < 5 : aerospace workspace 5; skhd -k "0x9A"
+prefix < 6 : aerospace workspace 6; skhd -k "0x9A"
+prefix < 7 : aerospace workspace 7; skhd -k "0x9A"
+prefix < 8 : aerospace workspace 8; skhd -k "0x9A"
+prefix < 9 : aerospace workspace 9; skhd -k "0x9A"
+
 # prefix < ]
-prefix < 0x1e : aerospace list-workspaces --monitor focused | aerospace workspace --stdin --wrap-around next
+prefix < 0x1e : aerospace list-workspaces --monitor focused --empty no | aerospace workspace --stdin --wrap-around next
 # prefix < [
-prefix < 0x21 : aerospace list-workspaces --monitor focused | aerospace workspace --stdin --wrap-around prev
+prefix < 0x21 : aerospace list-workspaces --monitor focused --empty no | aerospace workspace --stdin --wrap-around prev
 
 ####### WINDOW MODE (Node mode)
 
@@ -45,15 +55,15 @@ splits < j : aerospace join-with down; skhd -k "0x9A"
 splits < k : aerospace join-with up; skhd -k "0x9A"
 splits < l : aerospace join-with right; skhd -k "0x9A"
 
-splits < 1 : aerospace move-node-to-workspace 1; skhd -k "0x9A"
-splits < 2 : aerospace move-node-to-workspace 2; skhd -k "0x9A"
-splits < 3 : aerospace move-node-to-workspace 3; skhd -k "0x9A"
-splits < 4 : aerospace move-node-to-workspace 4; skhd -k "0x9A"
-splits < 5 : aerospace move-node-to-workspace 5; skhd -k "0x9A"
-splits < 6 : aerospace move-node-to-workspace 6; skhd -k "0x9A"
-splits < 7 : aerospace move-node-to-workspace 7; skhd -k "0x9A"
-splits < 8 : aerospace move-node-to-workspace 8; skhd -k "0x9A"
-splits < 9 : aerospace move-node-to-workspace 9; skhd -k "0x9A"
+splits < 1 : aerospace move-node-to-workspace 1; sketchybar --trigger space_windows_change; skhd -k "0x9A"
+splits < 2 : aerospace move-node-to-workspace 2; sketchybar --trigger space_windows_change; skhd -k "0x9A"
+splits < 3 : aerospace move-node-to-workspace 3; sketchybar --trigger space_windows_change; skhd -k "0x9A"
+splits < 4 : aerospace move-node-to-workspace 4; sketchybar --trigger space_windows_change; skhd -k "0x9A"
+splits < 5 : aerospace move-node-to-workspace 5; sketchybar --trigger space_windows_change; skhd -k "0x9A"
+splits < 6 : aerospace move-node-to-workspace 6; sketchybar --trigger space_windows_change; skhd -k "0x9A"
+splits < 7 : aerospace move-node-to-workspace 7; sketchybar --trigger space_windows_change; skhd -k "0x9A"
+splits < 8 : aerospace move-node-to-workspace 8; sketchybar --trigger space_windows_change; skhd -k "0x9A"
+splits < 9 : aerospace move-node-to-workspace 9; sketchybar --trigger space_windows_change; skhd -k "0x9A"
 
 ####### DESKTOP MODE (Layout mode)
 
@@ -72,6 +82,20 @@ default < $lowper - h : aerospace focus left
 default < $lowper - j : aerospace focus down
 default < $lowper - k : aerospace focus up
 default < $lowper - l : aerospace focus right
+
+default < $lowper - 1 : aerospace workspace 1; skhd -k "0x9A"
+default < $lowper - 2 : aerospace workspace 2; skhd -k "0x9A"
+default < $lowper - 3 : aerospace workspace 3; skhd -k "0x9A"
+default < $lowper - 4 : aerospace workspace 4; skhd -k "0x9A"
+default < $lowper - 5 : aerospace workspace 5; skhd -k "0x9A"
+default < $lowper - 6 : aerospace workspace 6; skhd -k "0x9A"
+default < $lowper - 7 : aerospace workspace 7; skhd -k "0x9A"
+default < $lowper - 8 : aerospace workspace 8; skhd -k "0x9A"
+default < $lowper - 9 : aerospace workspace 9; skhd -k "0x9A"
+
+default < $lowper - 0x1e : aerospace list-workspaces --monitor focused --empty no | aerospace workspace --stdin --wrap-around next
+# prefix < [
+default < $lowper - 0x21 : aerospace list-workspaces --monitor focused --empty no | aerospace workspace --stdin --wrap-around prev
 
 # default < $lowper - r : aerospace layout --root horizontal vertical
 # default < $lowper - b : aerospace layout tiling; aerospace layout --root tiles

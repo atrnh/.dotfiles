@@ -2,49 +2,43 @@
 
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins" # Directory where all the plugin scripts are stored
 
-windows_on_spaces () {
-  current_spaces="$(yabai -m query --displays | jq -r '.[].spaces | @sh')"
-  jq_unique_apps_without_floating_ghostty='map(select(."role" == "AXWindow" and ."subrole" == "AXStandardWindow")) | map(select(."layer" == "above" | not)) | unique_by(."app") | .[].app'
+update_highlights() {
+  focused_space="${FOCUSED_WORKSPACE:-$(aerospace list-workspaces --focused)}"
 
   args=()
-  while read -r line
-  do
-    for space in $line
-    do
-      icon_strip=" "
-      apps=$(yabai -m query --windows --space $space | jq -r "$jq_unique_apps_without_floating_ghostty")
-      if [ "$apps" != "" ]; then
-        while IFS= read -r app; do
-          icon_strip+=" $($PLUGIN_DIR/icon_map.sh "$app")"
-        done <<< "$apps"
-      fi
-      args+=(--set space.$space label="$icon_strip" label.drawing=on)
-    done
+  while IFS= read -r space; do
+    selected=off
+    if [ "$space" = "$focused_space" ]; then
+      selected=on
+    fi
+    args+=(--set space.$space icon.highlight="$selected" label.highlight="$selected")
   done <<< "$current_spaces"
 
   sketchybar -m "${args[@]}"
 }
 
-update() {
-  WIDTH="dynamic"
-  sketchybar --animate tanh 5 --set $NAME icon.highlight=$SELECTED label.highlight=$SELECTED
-  windows_on_spaces
+update_windows() {
+  args=()
+  while IFS= read -r space; do
+    icon_strip=" "
+    apps=$(aerospace list-windows --workspace "$space" --json --format '%{window-parent-container-layout}%{app-name}' |
+      jq -r '[.[] | select(.["window-parent-container-layout"] != "floating") | .["app-name"]] | unique[]')
+    if [ "$apps" != "" ]; then
+      while IFS= read -r app; do
+        icon_strip+=" $($PLUGIN_DIR/icon_map.sh "$app")"
+      done <<< "$apps"
+    fi
+    args+=(--set space.$space label="$icon_strip" label.drawing=on)
+  done <<< "$current_spaces"
+
+  sketchybar -m "${args[@]}"
 }
 
-mouse_clicked() {
-  # destroy space on right click
-  if [ "$BUTTON" = "right" ]; then
-    yabai -m space --destroy $SID
-    sketchybar --trigger space_change --trigger windows_on_spaces
-  else
-    yabai -m space --focus $SID 2>/dev/null
-  fi
-  update
-}
+if [ -n "${BUTTON:-}" ]; then
+  [ "$BUTTON" = "right" ] || aerospace workspace "$1" 2>/dev/null
+  exit
+fi
 
-case "$SENDER" in
-  "mouse.clicked") mouse_clicked
-  ;;
-  *) update
-  ;;
-esac
+current_spaces="$(aerospace list-workspaces --all)"
+update_highlights
+[ "$SENDER" = "aerospace_workspace_change" ] || update_windows

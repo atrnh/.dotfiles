@@ -1,19 +1,14 @@
 #!/bin/bash
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15")
+WORKSPACES=($(aerospace list-workspaces --all))
 
-# Destroy space on right click, focus space on left click.
-# New space by left clicking separator (>)
+# Focus workspace on left click.
 
-sid=0
 spaces=()
-for i in "${!SPACE_ICONS[@]}"; do
-  sid=$(($i + 1))
-
+for sid in "${WORKSPACES[@]}"; do
   space=(
-    associated_space=$sid
     icon.font="$FONT:Bold:12.0"
-    icon=${SPACE_ICONS[i]}
+    icon=$sid
     icon.padding_left=8
     icon.padding_right=8
     padding_left=2
@@ -28,12 +23,11 @@ for i in "${!SPACE_ICONS[@]}"; do
     label.background.color=$BACKGROUND_1
     label.background.corner_radius=4
     label.drawing=off
-    script="$PLUGIN_DIR/space.sh"
+    click_script="$PLUGIN_DIR/space.sh $sid"
   )
 
-  sketchybar --add space space.$sid left \
-    --set space.$sid "${space[@]}" \
-    --subscribe space.$sid mouse.clicked
+  sketchybar --add item space.$sid left \
+    --set space.$sid "${space[@]}"
 done
 
 spaces=(
@@ -42,19 +36,8 @@ spaces=(
   background.drawing=on
 )
 
-# separator=(
-#   icon=􀅼
-#   icon.font="$FONT:Heavy:10.0"
-#   padding_left=8
-#   padding_right=0
-#   label.drawing=off
-#   associated_display=active
-#   click_script='yabai -m space --create && sketchybar --trigger space_change'
-#   icon.color=$WHITE
-# )
-
 sketchybar --add bracket spaces '/space\..*/' \
-  --set spaces "${spaces[@]}" \
+  --set spaces "${spaces[@]}" script="$PLUGIN_DIR/space.sh" \
+  --add event aerospace_workspace_change \
   --add event window_created \
-  --add event window_destroyed \
-  --subscribe spaces space_windows_change space_change window_created window_destroyed
+  --subscribe spaces aerospace_workspace_change window_created space_windows_change

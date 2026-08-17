@@ -13,8 +13,8 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 
 default-root-container-layout = 'accordion'
 
-# Keep the pointer stationary when keyboard focus changes.
-on-focus-changed = []
+# Keep SketchyBar in sync when the focused window changes.
+on-focus-changed = ['exec-and-forget sketchybar --trigger aerospace_window_change']
 on-focused-monitor-changed = []
 focus-follows-mouse.enabled = false
 

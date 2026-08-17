@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WIDTH=100
+WIDTH=72
 
 volume_change() {
   source "$HOME/.config/sketchybar/icons.sh"
@@ -18,7 +18,7 @@ volume_change() {
     *) ICON=$VOLUME_100
   esac
 
-  sketchybar --set volume_icon label=$ICON
+  sketchybar --set volume_icon icon=$ICON
 
   sketchybar --set $NAME slider.percentage=$INFO \
              --animate tanh 30 --set $NAME slider.width=$WIDTH

@@ -11,26 +11,46 @@ after-startup-command = [
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-default-root-container-layout = 'tiles'
-default-root-container-orientation = 'auto'
+default-root-container-layout = 'accordion'
 
 # Keep the pointer stationary when keyboard focus changes.
 on-focus-changed = []
 on-focused-monitor-changed = []
 focus-follows-mouse.enabled = false
 
-# Match yabai's 8px window gap, edge padding, and 40px SketchyBar reservation.
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+# Notify SketchyBar when the focused workspace changes.
+exec-on-workspace-change = [
+  '/bin/bash',
+  '-c',
+  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
+]
+
+# Match yabai's window gaps and padding. AeroSpace already accounts for the menu bar.
 gaps.inner.horizontal = 8
 gaps.inner.vertical = 8
 gaps.outer.left = 8
 gaps.outer.bottom = 10
-gaps.outer.top = 50
+# 16px visible gap plus the 6px border drawn outside the window frame.
+gaps.outer.top = 22
 gaps.outer.right = 8
 
 # AeroSpace already floats windows it recognizes as dialogs, including Codex dialogs.
 on-window-detected = [
-    { if = '''test %{app-name} ~= "^App Store|^System Settings$|^Install.?|Dashlane|Zoom|^Adobe.*|^Presentify.*|petdex-desktop"''', run = 'layout floating', check-further-callbacks = true },
-    { run = ['balance-sizes --workspace %{workspace}', 'exec-and-forget sketchybar --trigger window_created'] },
+  {
+    if = '''test %{app-name} ~= "^App Store|^System Settings$|^Install.?|Dashlane|Zoom|^Adobe.*|^Presentify.*|petdex-desktop"''',
+    run = 'layout floating',
+    check-further-callbacks = true
+  },
+  {
+    if = 'true',
+    run = [
+      # 'balance-sizes --workspace %{workspace}',
+      'exec-and-forget sketchybar --trigger window_created',
+      # 'exec-and-forget sketchybar --trigger window_resized',
+    ],
+  },
 ]
 
 # AeroSpace does not expose a matching window-destroyed callback.

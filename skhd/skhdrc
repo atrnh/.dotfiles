@@ -5,50 +5,47 @@
 # Default mode: reset SketchyBar colors.
 :: default : \
   sketchybar --bar color=0xff1d1d2d \
-  --set /./ label.color=0xfff5e0dc \
+  --set /./ \
+    label.color=0xfff5e0dc \
   --set /space/ \
     label.background.color=0xff313244 \
     icon.highlight_color=0xffeba0ac \
   --set /volume/ icon.color=0xfff38ba8 \
   --set /apple/ icon.color=0xffa6e3a1
 
+.define set_sketchybar_bg : sketchybar --bar color={{1}}
+
 # Prefix mode: left control + semicolon.
-:: prefix @
+:: prefix @ : @set_sketchybar_bg("0x61dc8a78")
+
 default < lctrl - 0x29 ; prefix
 
 # Window mode: dark purple SketchyBar.
-:: window @ : \
-  sketchybar --bar color=0xff65469f \
-  --set /./ label.color=0xffaaa6e7 \
-  --set /space/ \
-    label.background.color=0xff65469f \
-    icon.highlight_color=0xffaaa6e7 \
-  --set /volume/ icon.color=0xffaaa6e7 \
-  --set /apple/ icon.color=0xffaaa6e7
+:: window @ : @set_sketchybar_bg("0xa18839ef")
+
+# Splits mode: dark blue SketchyBar.
+:: splits @ : @set_sketchybar_bg("0x611e66f5")
 
 # Desktop mode: dark green SketchyBar.
-:: desktop @ : \
-  sketchybar --bar color=0xff476f50 \
-  --set /./ label.color=0xffaaa6e7 \
-  --set /space/ \
-    label.background.color=0xff476f50 \
-    icon.highlight_color=0xffaaa6e7 \
-  --set /volume/ icon.color=0xffaaa6e7 \
-  --set /apple/ icon.color=0xffaaa6e7
+:: desktop @ : @set_sketchybar_bg("0x9140a02b")
 
 ####### MODE SWITCHING
 
-prefix < w ; window
 prefix < d ; desktop
+prefix < w ; window
+prefix < s ; splits
 
 # 0x9A is an unused keycode that gives the modes one-shot behavior.
 prefix < 0x9A ; default
 window < 0x9A ; default
 desktop < 0x9A ; default
+splits < 0x9A ; default
 
+# Escape key always returns to the default mode.
 prefix < escape ; default
 window < escape ; default
 desktop < escape ; default
+splits < escape ; default
 
 ####### SHARED BINDINGS
 

@@ -2,56 +2,82 @@
 
 ####### PREFIX MODE
 
+# Toggle between tiles and accordion layout
+# prefix < /
+prefix < 0x2c : aerospace layout --root tiles accordion; aerospace flatten-workspace-tree; skhd -k "0x9A"
+
 prefix < h : aerospace focus left; skhd -k "0x9A"
 prefix < j : aerospace focus down; skhd -k "0x9A"
 prefix < k : aerospace focus up; skhd -k "0x9A"
 prefix < l : aerospace focus right; skhd -k "0x9A"
 
-####### WINDOW MODE
+# prefix < ]
+prefix < 0x1e : aerospace list-workspaces --monitor focused | aerospace workspace --stdin --wrap-around next
+# prefix < [
+prefix < 0x21 : aerospace list-workspaces --monitor focused | aerospace workspace --stdin --wrap-around prev
 
-window < h : aerospace swap left
-window < j : aerospace swap down
-window < k : aerospace swap up
-window < l : aerospace swap right
+####### WINDOW MODE (Node mode)
 
-# AeroSpace resizes dimensions rather than individual window edges.
-window < a : aerospace resize width +20
-window < s : aerospace resize height +20
-window < w : aerospace resize height +20
-window < d : aerospace resize width +20
-window < shift - a : aerospace resize width -20
-window < shift - s : aerospace resize height -20
-window < shift - w : aerospace resize height -20
-window < shift - d : aerospace resize width -20
+window < h : aerospace swap left; skhd -k "0x9A"
+window < j : aerospace swap down; skhd -k "0x9A"
+window < k : aerospace swap up; skhd -k "0x9A"
+window < l : aerospace swap right; skhd -k "0x9A"
+
+window < 0x21 : aerospace resize smart -20 # [
+window < 0x1e : aerospace resize smart +20 # ]
+
+window < 0x7e : aerospace resize height +20 # up
+window < 0x7d : aerospace resize height -20 # down
+window < 0x7b : aerospace resize width -20 # left
+window < 0x7c : aerospace resize width +20 # right
 
 # AeroSpace has one tiling fullscreen level; removing outer gaps is the closest
 # equivalent to yabai's full-space zoom.
 window < p : aerospace fullscreen; skhd -k "0x9A"
 window < shift - p : aerospace fullscreen --no-outer-gaps; skhd -k "0x9A"
 
-window < 0x2F : aerospace layout tiles horizontal vertical; skhd -k "0x9A"
-
 # AeroSpace preserves the window's last floating size and position.
 window < f : aerospace layout floating tiling; skhd -k "0x9A"
 
-####### DESKTOP MODE
+splits < 0x2c : aerospace layout tiles accordion; skhd -k "0x9A" # slash
+splits < h : aerospace join-with left; skhd -k "0x9A"
+splits < j : aerospace join-with down; skhd -k "0x9A"
+splits < k : aerospace join-with up; skhd -k "0x9A"
+splits < l : aerospace join-with right; skhd -k "0x9A"
+
+splits < 1 : aerospace move-node-to-workspace 1; skhd -k "0x9A"
+splits < 2 : aerospace move-node-to-workspace 2; skhd -k "0x9A"
+splits < 3 : aerospace move-node-to-workspace 3; skhd -k "0x9A"
+splits < 4 : aerospace move-node-to-workspace 4; skhd -k "0x9A"
+splits < 5 : aerospace move-node-to-workspace 5; skhd -k "0x9A"
+splits < 6 : aerospace move-node-to-workspace 6; skhd -k "0x9A"
+splits < 7 : aerospace move-node-to-workspace 7; skhd -k "0x9A"
+splits < 8 : aerospace move-node-to-workspace 8; skhd -k "0x9A"
+splits < 9 : aerospace move-node-to-workspace 9; skhd -k "0x9A"
+
+####### DESKTOP MODE (Layout mode)
+
+desktop < r : aerospace flatten-workspace-tree; skhd -k "0x9A"
+
+
 
 # These are the closest non-destructive equivalents to yabai's space commands.
-desktop < r : aerospace layout --root horizontal vertical
-desktop < b : aerospace layout tiling; aerospace layout --root tiles
-desktop < f : aerospace layout floating
+# desktop < r : aerospace layout --root horizontal vertical
+# desktop < b : aerospace layout tiling; aerospace layout --root tiles
+# desktop < f : aerospace layout floating
 
 ####### CUSTOM KEYBOARD
 
-default < $lowper - r : aerospace layout --root horizontal vertical
-default < $lowper - b : aerospace layout tiling; aerospace layout --root tiles
 default < $lowper - h : aerospace focus left
 default < $lowper - j : aerospace focus down
 default < $lowper - k : aerospace focus up
 default < $lowper - l : aerospace focus right
-default < $lowper - f : aerospace layout floating tiling
-default < $lowper - p : aerospace fullscreen
-default < $lowper - up : aerospace swap up
-default < $lowper - left : aerospace swap left
-default < $lowper - down : aerospace swap down
-default < $lowper - right : aerospace swap right
+
+# default < $lowper - r : aerospace layout --root horizontal vertical
+# default < $lowper - b : aerospace layout tiling; aerospace layout --root tiles
+# default < $lowper - f : aerospace layout floating tiling
+# default < $lowper - p : aerospace fullscreen
+# default < $lowper - up : aerospace swap up
+# default < $lowper - left : aerospace swap left
+# default < $lowper - down : aerospace swap down
+# default < $lowper - right : aerospace swap right

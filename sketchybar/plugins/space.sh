@@ -20,15 +20,19 @@ update_highlights() {
 update_windows() {
   args=()
   while IFS= read -r space; do
-    icon_strip=" "
+    icon_strip=""
     apps=$(aerospace list-windows --workspace "$space" --json --format '%{window-parent-container-layout}%{app-name}' |
       jq -r '[.[] | select(.["window-parent-container-layout"] != "floating") | .["app-name"]] | unique[]')
     if [ "$apps" != "" ]; then
       while IFS= read -r app; do
-        icon_strip+=" $($PLUGIN_DIR/icon_map.sh "$app")"
+        icon_strip+="$($PLUGIN_DIR/icon_map.sh "$app")"
       done <<< "$apps"
     fi
-    args+=(--set space.$space label="$icon_strip" label.drawing=on)
+    if [ -n "$icon_strip" ]; then
+      args+=(--set space.$space label="$icon_strip" label.drawing=on label.background.drawing=on)
+    else
+      args+=(--set space.$space label="" label.drawing=off label.background.drawing=off)
+    fi
   done <<< "$current_spaces"
 
   sketchybar -m "${args[@]}"

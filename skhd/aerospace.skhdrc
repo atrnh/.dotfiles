@@ -4,7 +4,7 @@
 
 # Toggle between tiles and accordion layout
 # prefix < /
-prefix < 0x2c : aerospace layout --root tiles accordion; aerospace flatten-workspace-tree; skhd -k "0x9A"
+prefix < 0x2c : aerospace layout --root tiles accordion; aerospace flatten-workspace-tree; sketchybar --trigger aerospace_window_change; skhd -k "0x9A"
 
 prefix < h : aerospace focus left; skhd -k "0x9A"
 prefix < j : aerospace focus down; skhd -k "0x9A"
@@ -33,13 +33,13 @@ window < 0x7c : aerospace resize width +20 # right
 
 # AeroSpace has one tiling fullscreen level; removing outer gaps is the closest
 # equivalent to yabai's full-space zoom.
-window < p : aerospace fullscreen; skhd -k "0x9A"
-window < shift - p : aerospace fullscreen --no-outer-gaps; skhd -k "0x9A"
+window < p : aerospace fullscreen; sketchybar --trigger aerospace_window_change; skhd -k "0x9A"
+window < shift - p : aerospace fullscreen --no-outer-gaps; sketchybar --trigger aerospace_window_change; skhd -k "0x9A"
 
 # AeroSpace preserves the window's last floating size and position.
-window < f : aerospace layout floating tiling; skhd -k "0x9A"
+window < f : aerospace layout floating tiling; sketchybar --trigger aerospace_window_change; skhd -k "0x9A"
 
-splits < 0x2c : aerospace layout tiles accordion; skhd -k "0x9A" # slash
+splits < 0x2c : aerospace layout tiles accordion; sketchybar --trigger aerospace_window_change; skhd -k "0x9A" # slash
 splits < h : aerospace join-with left; skhd -k "0x9A"
 splits < j : aerospace join-with down; skhd -k "0x9A"
 splits < k : aerospace join-with up; skhd -k "0x9A"
@@ -57,7 +57,7 @@ splits < 9 : aerospace move-node-to-workspace 9; skhd -k "0x9A"
 
 ####### DESKTOP MODE (Layout mode)
 
-desktop < r : aerospace flatten-workspace-tree; skhd -k "0x9A"
+desktop < r : aerospace flatten-workspace-tree; sketchybar --trigger aerospace_window_change; skhd -k "0x9A"
 
 
 

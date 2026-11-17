@@ -25,13 +25,12 @@ bar=(
   height=30
   color=$BAR_COLOR
   shadow=off
-  position=bottom
+  position=top
   sticky=on
   padding_right=4
   padding_left=4
   corner_radius=7
-  # SketchyBar doubles this offset at the bottom edge.
-  y_offset=2
+  y_offset=0
   margin=6
   blur_radius=20
   font_smoothing=off

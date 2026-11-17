@@ -30,7 +30,8 @@ bar=(
   padding_right=4
   padding_left=4
   corner_radius=7
-  y_offset=4
+  # Keep clicks below the 33-point macOS 27.2 menu bar reveal strip.
+  y_offset=37
   margin=6
   blur_radius=20
   font_smoothing=off

@@ -27,13 +27,13 @@ exec-on-workspace-change = [
   'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
 ]
 
-# Match yabai's window gaps and padding. AeroSpace already accounts for the menu bar.
+# Match yabai's window gaps and padding.
 gaps.inner.horizontal = 8
 gaps.inner.vertical = 8
 gaps.outer.left = 8
 gaps.outer.bottom = 10
-# 16px visible gap plus the 6px border drawn outside the window frame.
-gaps.outer.top = 10
+# Add 33 points for the SketchyBar offset while keeping the 10-point gap.
+gaps.outer.top = 43
 gaps.outer.right = 8
 
 # AeroSpace already floats windows it recognizes as dialogs, including Codex dialogs.

@@ -31,8 +31,7 @@ exec-on-workspace-change = [
 gaps.inner.horizontal = 8
 gaps.inner.vertical = 8
 gaps.outer.left = 8
-# Reserve the 30-point SketchyBar and its 4-point inset, plus 10 points of clearance.
-gaps.outer.bottom = 44
+gaps.outer.bottom = 10
 gaps.outer.top = 10
 gaps.outer.right = 8
 

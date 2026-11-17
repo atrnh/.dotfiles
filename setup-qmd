@@ -1,0 +1,48 @@
+#!/usr/bin/env sh
+
+set -eu
+
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
+config_home=${XDG_CONFIG_HOME:-"$HOME/.config"}
+qmd_config_dir="$config_home/qmd"
+qmd_bin_dir="$HOME/.local/bin"
+
+for required_command in brew node pnpm stow; do
+  if ! command -v "$required_command" >/dev/null 2>&1; then
+    echo "$required_command is required" >&2
+    exit 1
+  fi
+done
+
+node_major=$(node -p 'Number(process.versions.node.split(".")[0])')
+if [ "$node_major" -lt 22 ]; then
+  echo "QMD requires Node.js 22 or newer" >&2
+  exit 1
+fi
+
+if ! brew --prefix sqlite >/dev/null 2>&1; then
+  echo "QMD requires Homebrew SQLite. Install it with: brew install sqlite" >&2
+  exit 1
+fi
+
+mkdir -p "$qmd_bin_dir" "$qmd_config_dir"
+
+pnpm --config.global-bin-dir="$qmd_bin_dir" add --global @tobilu/qmd
+
+if ! stow --simulate --restow --dir "$repo_dir" --target "$qmd_config_dir" qmd >/dev/null; then
+  echo "QMD config conflicts with an existing file in $qmd_config_dir" >&2
+  exit 1
+fi
+stow --restow --dir "$repo_dir" --target "$qmd_config_dir" qmd
+
+qmd="$qmd_bin_dir/qmd"
+if [ ! -x "$qmd" ]; then
+  echo "QMD was not installed at $qmd" >&2
+  exit 1
+fi
+
+echo "Indexing the Work vault. The first run downloads about 2 GB of local models."
+"$qmd" update
+"$qmd" embed
+"$qmd" doctor
+"$qmd" status

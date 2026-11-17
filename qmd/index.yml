@@ -1,0 +1,29 @@
+global_context: "A wide array of different document types: drafts of fiction projects, personal notes, journal entries, reusable resources, task records, wikis, and more."
+collections:
+  vault:
+    path: /Users/ashley/Library/Mobile Documents/iCloud~md~obsidian/Documents/Work
+    pattern: "**/*.md"
+    ignore:
+      - .obsidian/**
+      - .trash/**
+      - Templates/**
+    includeByDefault: true
+    context:
+      /: Ashley's Obsidian vault containing personal documents and documents used in her work
+      /Areas: Ongoing activities or responsibilities with no clear deadline
+      /Areas/Writing: Creative writing and essays, both fiction and nonfiction
+      /Daily: Chronological daily and periodic notes
+      /Projects: Finite projects and their working material
+      /Resources: Reusable reference material, documentation, and assets
+      /Resources/Clippings: Archived content duplicated from external sources, such as excerpts from web pages and AI chat responses
+      /Resources/Docs: Technical documentation, reference materials, process and workflow logs
+      /Resources/Dumpster: Drafts, orphaned notes, documents that haven't been sorted yet
+      /Resources/Proposals: High-level ideas for projects
+      /Resources/SelfWiki/wiki: Ashley's personal knowledge base, organized into concepts and entities
+      /Resources/SelfWiki/wiki/concepts: Wiki entries describing an abstract competency or way of working
+      /Resources/SelfWiki/wiki/entities: Wiki entries that describe concrete, nameable thing that exists in the world
+      /Resources/Specs: Specifications with implementation details for projects
+models:
+  embed: hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf
+  generate: hf:tobil/qmd-query-expansion-1.7B-gguf/qmd-query-expansion-1.7B-q4_k_m.gguf
+  rerank: hf:ggml-org/Qwen3-Reranker-0.6B-Q8_0-GGUF/qwen3-reranker-0.6b-q8_0.gguf

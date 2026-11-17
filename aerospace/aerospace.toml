@@ -33,7 +33,8 @@ gaps.inner.vertical = 8
 gaps.outer.left = 8
 # Reserve the 30-point SketchyBar and its 4-point inset, plus 10 points of clearance.
 gaps.outer.bottom = 44
-gaps.outer.top = 10
+# macOS already reserves space for the notch on the built-in display.
+gaps.outer.top = [{ monitor.'Built-in Retina Display' = 0 }, 10]
 gaps.outer.right = 8
 
 # AeroSpace already floats windows it recognizes as dialogs, including Codex dialogs.

@@ -25,13 +25,13 @@ bar=(
   height=30
   color=$BAR_COLOR
   shadow=off
-  position=top
+  position=bottom
   sticky=on
   padding_right=4
   padding_left=4
   corner_radius=7
-  # Keep clicks below the 33-point macOS 27.2 menu bar reveal strip.
-  y_offset=37
+  # SketchyBar doubles this offset at the bottom edge.
+  y_offset=2
   margin=6
   blur_radius=20
   font_smoothing=off

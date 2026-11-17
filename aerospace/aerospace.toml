@@ -31,9 +31,9 @@ exec-on-workspace-change = [
 gaps.inner.horizontal = 8
 gaps.inner.vertical = 8
 gaps.outer.left = 8
-gaps.outer.bottom = 10
-# Add 33 points for the SketchyBar offset while keeping the 10-point gap.
-gaps.outer.top = 43
+# Reserve the 30-point SketchyBar and its 4-point inset, plus 10 points of clearance.
+gaps.outer.bottom = 44
+gaps.outer.top = 10
 gaps.outer.right = 8
 
 # AeroSpace already floats windows it recognizes as dialogs, including Codex dialogs.
